@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suvarna Dasharath Purkar — B.Ed. Scholar | MSVM's New College of Education | Nashik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ════ TOKENS ════════════════════════════════════════ */
+:root {
+  --bg:    #060811; --bg2: #0D1120; --bg3: #111827;
+  --txt:   #F0F0EC; --mute: #6B7280; --mute2: #9CA3AF;
+  --a:     #F59E0B; --a2: #818CF8; --a3: #34D399;
+  --aRGB:  245,158,11; --a2RGB: 129,140,248; --a3RGB: 52,211,153;
+  --bdr:   rgba(255,255,255,.06); --bdrS: rgba(255,255,255,.14);
+  --glass: rgba(255,255,255,.04); --glassB: rgba(255,255,255,.1);
+  --navH:  72px;
+  --f-display: 'Playfair Display', serif;
+  --f-body:    'DM Sans', sans-serif;
+  --f-mono:    'Space Grotesk', sans-serif;
+  --ease:  cubic-bezier(.4,0,.2,1);
+  --spring: cubic-bezier(.34,1.56,.64,1);
+}
+[data-theme=light]{
+  --bg:#FAFAF7; --bg2:#F0EDE8; --bg3:#E8E4DF;
+  --txt:#0D0D0D; --mute:#6B7280; --mute2:#9CA3AF;
+  --bdr:rgba(0,0,0,.06); --bdrS:rgba(0,0,0,.14);
+  --glass:rgba(255,255,255,.72); --glassB:rgba(0,0,0,.09);
+}
+/* ════ RESET ════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto;overflow-x:hidden}
+body{font-family:var(--f-body);background:var(--bg);color:var(--txt);overflow-x:hidden;transition:background .5s,color .5s;cursor:none}
+@media(max-width:768px){body{cursor:auto}}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:none;font-family:inherit}
+@media(max-width:768px){button{cursor:pointer}}
+/* ════ NOISE OVERLAY ═══════════════════════════════ */
+body::before{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;}
+/* ════ CUSTOM CURSOR ══════════════════════════════ */
+#cursor{position:fixed;z-index:99999;pointer-events:none;mix-blend-mode:difference;top:0;left:0;transform:translate(-50%,-50%)}
+#cursor-dot{width:8px;height:8px;border-radius:50%;background:#fff;transition:transform .1s}
+#cursor-ring{position:fixed;z-index:99998;pointer-events:none;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);top:0;left:0;transform:translate(-50%,-50%);transition:transform .12s var(--ease),width .3s,height .3s,border-color .3s;mix-blend-mode:difference}
+#cursor-ring.hov{width:56px;height:56px;border-color:rgba(255,255,255,.9)}
+/* ════ PROGRESS BAR ═══════════════════════════════ */
+#prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:99997;pointer-events:none}
+#pfill{height:100%;width:0%;background:linear-gradient(90deg,var(--a2),var(--a));transition:width .06s linear}
+/* ════ LOADER ═════════════════════════════════════ */
+#ldr{position:fixed;inset:0;background:#060811;z-index:99996;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .9s var(--ease),visibility .9s}
+#ldr.out{opacity:0;visibility:hidden}
+.l-name{font-family:var(--f-display);font-size:clamp(32px,6vw,64px);font-weight:900;letter-spacing:-.04em;overflow:hidden;display:flex;gap:.25em}
+.l-name span{display:inline-block;transform:translateY(100%);animation:lSlide .8s var(--spring) forwards}
+.l-name span:last-child{animation-delay:.15s;background:linear-gradient(135deg,var(--a2),var(--a));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.l-role{font-family:var(--f-mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);overflow:hidden}
+.l-role span{display:block;transform:translateY(100%);animation:lSlide .6s var(--ease) .4s forwards}
+.l-bar-wrap{width:240px;height:1px;background:rgba(255,255,255,.08);overflow:hidden;border-radius:1px}
+.l-bar{height:100%;background:linear-gradient(90deg,var(--a2),var(--a));width:0;animation:lBar 2.2s var(--ease) forwards}
+.l-pct{font-family:var(--f-mono);font-size:13px;color:var(--mute);letter-spacing:.06em}
+@keyframes lSlide{to{transform:translateY(0)}}
+@keyframes lBar{to{width:100%}}
+/* ════ NAVBAR ═════════════════════════════════════ */
+#nav{position:fixed;top:0;left:0;right:0;height:var(--navH);z-index:9000;padding:0 5%;transition:all .4s var(--ease)}
+#nav.scrolled{background:rgba(6,8,17,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--bdr)}
+[data-theme=light] #nav.scrolled{background:rgba(250,250,247,.9)}
+.nav-in{height:100%;max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--f-display);font-size:22px;font-weight:700;letter-spacing:-.03em;position:relative}
+.logo em{color:var(--a);font-style:normal}
+.logo::after{content:'B.Ed. Scholar';position:absolute;bottom:-14px;left:0;font-family:var(--f-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--mute)}
+.navl{display:flex;gap:2rem;list-style:none}
+.navl a{font-size:13px;font-weight:500;color:var(--mute);letter-spacing:.02em;transition:color .25s;position:relative}
+.navl a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--a);transition:width .3s var(--ease)}
+.navl a:hover{color:var(--txt)}.navl a:hover::after{width:100%}
+.nav-r{display:flex;align-items:center;gap:.9rem}
+.thm{width:38px;height:38px;border-radius:50%;background:var(--glass);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:16px;transition:border-color .25s,transform .3s}
+.thm:hover{border-color:var(--a);transform:rotate(20deg)}
+/* Claymorphism CTA button */
+.cta-clay{
+  padding:10px 24px;font-size:13px;font-weight:600;
+  border-radius:100px;border:none;
+  background:var(--a);color:#000;
+  box-shadow:0 6px 0 #92680A, 0 8px 16px rgba(var(--aRGB),.35);
+  transform:translateY(0);transition:transform .15s,box-shadow .15s;
+  font-family:var(--f-mono);letter-spacing:.04em;
+}
+.cta-clay:hover{transform:translateY(3px);box-shadow:0 3px 0 #92680A,0 4px 8px rgba(var(--aRGB),.3)}
+.cta-clay:active{transform:translateY(6px);box-shadow:0 0px 0 #92680A,0 2px 4px rgba(var(--aRGB),.2)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:none}
+.ham span{width:22px;height:1.5px;background:var(--txt);display:block;transition:transform .35s var(--spring),opacity .25s}
+.ham.x span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.ham.x span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.x span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+/* ════ MOBILE MENU ════════════════════════════════ */
+#mob{position:fixed;inset:0;background:var(--bg);z-index:8999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+#mob.on{opacity:1;visibility:visible}
+.mlink{font-family:var(--f-display);font-size:clamp(32px,7vw,52px);font-weight:700;letter-spacing:-.03em;opacity:0;transform:translateY(22px)}
+#mob.on .mlink{animation:mup .45s var(--spring) forwards}
+#mob.on .mlink:nth-child(2){animation-delay:.06s}#mob.on .mlink:nth-child(3){animation-delay:.12s}
+#mob.on .mlink:nth-child(4){animation-delay:.18s}#mob.on .mlink:nth-child(5){animation-delay:.24s}
+#mob.on .mlink:nth-child(6){animation-delay:.3s}#mob.on .mlink:nth-child(7){animation-delay:.36s}
+.mlink:hover{color:var(--a)}
+@keyframes mup{to{opacity:1;transform:none}}
+/* ════ DOT NAV ════════════════════════════════════ */
+#dotnav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:8000;display:flex;flex-direction:column;gap:14px}
+.dn{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);background:transparent;cursor:none;transition:all .35s var(--spring);position:relative}
+.dn.on{width:8px;height:8px;background:var(--a);border-color:var(--a);box-shadow:0 0 12px rgba(var(--aRGB),.6)}
+.dn::after{content:attr(data-l);position:absolute;right:18px;top:50%;transform:translateY(-50%);background:rgba(6,8,17,.9);color:#fff;font-size:11px;padding:4px 10px;border-radius:6px;white-space:nowrap;font-family:var(--f-mono);opacity:0;pointer-events:none;transition:opacity .2s;letter-spacing:.04em}
+.dn:hover::after{opacity:1}
+/* ════ SKILLS TICKER ══════════════════════════════ */
+#ticker{background:var(--a);padding:10px 0;overflow:hidden;position:relative;z-index:2}
+.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:tickRun 20s linear infinite}
+.tick-item{font-family:var(--f-mono);font-size:12px;font-weight:600;color:#000;letter-spacing:.08em;text-transform:uppercase;padding:0 2rem}
+.tick-sep{color:rgba(0,0,0,.4);margin:0 .3rem}
+@keyframes tickRun{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* ════ SHARED ═════════════════════════════════════ */
+section{position:relative;overflow:hidden}
+.w{max-width:1360px;margin:0 auto;padding:0 5%}
+.pad{padding:130px 0}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--a);margin-bottom:1rem}
+.chip::before{content:'';width:24px;height:1.5px;background:var(--a);flex-shrink:0}
+.sh{font-family:var(--f-display);font-size:clamp(32px,4.5vw,56px);font-weight:700;letter-spacing:-.03em;line-height:1.08}
+.word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.word span{display:inline-block;transform:translateY(110%);transition:transform .7s var(--spring)}
+.word.vis span{transform:translateY(0)}
+.g{background:linear-gradient(135deg,var(--a2) 0%,var(--a) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* ════ HERO ════════════════════════════════════════ */
+#hero{min-height:100vh;display:flex;align-items:center;background:var(--bg);isolation:isolate}
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+/* Gradient mesh orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.18;animation:orbFloat 0s ease-in-out infinite}
+.o1{width:600px;height:600px;background:radial-gradient(circle,var(--a2),transparent);top:-200px;left:-200px;animation-duration:12s}
+.o2{width:500px;height:500px;background:radial-gradient(circle,var(--a),transparent);bottom:-200px;right:-150px;animation-duration:15s}
+.o3{width:300px;height:300px;background:radial-gradient(circle,var(--a3),transparent);top:40%;left:40%;animation-duration:9s;opacity:.1}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,20px) scale(1.05)}66%{transform:translate(-20px,30px) scale(.95)}}
+/* Grid lines background */
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 20%,transparent 100%)}
+.hgrid{display:grid;grid-template-columns:1fr;gap:0;max-width:760px;margin:0 auto;align-items:center;padding-top:2rem;min-height:100vh}
+.hero-sup{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute2);margin-bottom:1.6rem;opacity:0;animation:fadeUp .6s var(--ease) 2.8s forwards}
+.hero-sup::before{content:'';width:30px;height:1px;background:var(--mute)}
+/* Display headline */
+.hero-h{font-family:var(--f-display);font-size:clamp(48px,7vw,100px);font-weight:900;letter-spacing:-.04em;line-height:.95;color:var(--txt);margin-bottom:1.6rem}
+.hero-h .line{display:block;overflow:hidden}
+.hero-h .line span{display:block;transform:translateY(105%)}
+.hero-h .italic-line{font-style:italic;font-weight:400;font-size:clamp(22px,3vw,44px);color:var(--mute);letter-spacing:-.01em;display:block;overflow:hidden;margin-bottom:.3rem}
+.hero-h .italic-line span{display:block;transform:translateY(105%)}
+.hero-sub{font-size:clamp(15px,1.5vw,17px);color:var(--mute);line-height:1.82;max-width:440px;margin-bottom:2.2rem;opacity:0;animation:fadeUp .7s var(--ease) 3.4s forwards}
+.hbtns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .7s var(--ease) 3.6s forwards}
+/* Clay primary button */
+.btn-clay{padding:14px 32px;font-size:14px;font-weight:700;border-radius:100px;border:none;background:var(--a);color:#000;font-family:var(--f-mono);letter-spacing:.04em;box-shadow:0 7px 0 #92680A,0 10px 20px rgba(var(--aRGB),.4),inset 0 1px 0 rgba(255,255,255,.3);transform:translateY(0);transition:transform .15s,box-shadow .15s}
+.btn-clay:hover{transform:translateY(4px);box-shadow:0 3px 0 #92680A,0 6px 10px rgba(var(--aRGB),.3),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-clay:active{transform:translateY(7px);box-shadow:0 0px 0 #92680A,0 2px 4px rgba(var(--aRGB),.2)}
+.btn-ghost{padding:14px 32px;font-size:14px;font-weight:500;border-radius:100px;background:transparent;color:var(--txt);border:1px solid var(--bdrS);font-family:var(--f-mono);letter-spacing:.04em;transition:border-color .25s,color .25s,background .25s}
+.btn-ghost:hover{border-color:var(--a);color:var(--a);background:rgba(var(--aRGB),.06)}
+/* Stats */
+.hstats{display:flex;gap:2.5rem;margin-top:2.8rem;padding-top:2rem;border-top:1px solid var(--bdr);opacity:0;animation:fadeUp .7s var(--ease) 3.8s forwards}
+.stat-num{font-family:var(--f-display);font-size:36px;font-weight:700;line-height:1;color:var(--txt)}
+.stat-num em{color:var(--a);font-style:normal}
+.stat-lbl{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+/* Hero photo - glassmorphism treatment */
+/* Glass info badges */
+.hbadge{position:absolute;background:rgba(6,8,17,.7);border:1px solid var(--glassB);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:18px;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.hbadge-1{bottom:-20px;left:-30px;animation:floatA 4s ease-in-out infinite 3s}
+.hbadge-2{top:30px;right:-30px;animation:floatB 5s ease-in-out infinite 3s}
+.hbadge-3{bottom:60px;right:-40px;animation:floatA 6s ease-in-out infinite 3.5s}
+@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+@keyframes photoReveal{0%{opacity:0;transform:scale(.96) translateY(20px)}100%{opacity:1;transform:none}}
+.hbadge-icon{font-size:22px;flex-shrink:0}
+.hbadge-t{font-size:12.5px;font-weight:600;color:var(--txt);white-space:nowrap}
+.hbadge-s{font-size:10.5px;color:var(--mute);font-family:var(--f-mono)}
+/* Award ribbon */
+.award-rib{position:absolute;top:-8px;right:-8px;background:var(--a);color:#000;font-family:var(--f-mono);font-size:10px;font-weight:700;padding:6px 14px;border-radius:100px;letter-spacing:.06em;white-space:nowrap;box-shadow:0 4px 0 #92680A;z-index:2}
+/* Scroll hint */
+.scroll-hint{position:absolute;bottom:40px;left:5%;display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--mute);opacity:0;animation:fadeUp .6s var(--ease) 4s forwards}
+.scroll-line{width:40px;height:1px;background:var(--mute);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;inset:0;background:var(--a);animation:scrollSlide 2s ease-in-out infinite}
+@keyframes scrollSlide{0%{transform:translateX(-100%)}50%{transform:translateX(0)}100%{transform:translateX(100%)}}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:none}}
+/* ════ ABOUT ═══════════════════════════════════════ */
+#about{background:var(--bg2)}
+.agrid{display:grid;grid-template-columns:5fr 4fr;gap:5rem;align-items:center}
+.ap{font-size:16px;line-height:1.9;color:var(--mute);margin-bottom:1.1rem}
+.blockq{font-style:italic;font-size:15px;border-left:2px solid var(--a);padding-left:1.2rem;color:var(--mute2);margin:1.8rem 0;line-height:1.8}
+.infogrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.info-lbl{font-family:var(--f-mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:3px}
+.info-val{font-size:13.5px;font-weight:500;color:var(--txt)}
+/* Glassmorphism about photo */
+.aphoto-frame{position:relative;width:100%}
+.aphoto-glass{width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:1px solid var(--bdrS);background:var(--bg3);position:relative}
+.aphoto-glass img{width:100%;height:100%;object-fit:cover;object-position:center top}
+/* Neumorphism stat card */
+.neuro-stat{position:absolute;bottom:-28px;right:-24px;background:var(--bg3);border-radius:18px;padding:20px 24px;font-family:var(--f-display);
+  box-shadow: 6px 6px 16px rgba(0,0,0,.5), -3px -3px 10px rgba(255,255,255,.03),inset 0 1px 0 rgba(255,255,255,.05)}
+.ns-num{font-size:36px;font-weight:700;color:var(--a);line-height:1}
+.ns-lbl{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+/* Glass tag line */
+.glass-tag{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--glassB);backdrop-filter:blur(12px);padding:6px 16px;border-radius:100px;font-family:var(--f-mono);font-size:10.5px;color:var(--mute2);margin-bottom:1.2rem;letter-spacing:.06em}
+.glass-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--a3);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+/* ════ SKILLS BENTO ══════════════════════════════ */
+#skills{background:var(--bg)}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+/* Glassmorphism bento cards */
+.bc{background:var(--glass);border:1px solid var(--bdr);border-radius:22px;padding:28px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:border-color .35s,transform .35s var(--spring),box-shadow .35s;position:relative;overflow:hidden}
+.bc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 60%);pointer-events:none}
+.bc:hover{border-color:var(--bdrS);transform:translateY(-3px);box-shadow:0 24px 48px rgba(0,0,0,.3)}
+.bc.s2{grid-column:span 2}.bc.sr{grid-row:span 2}
+/* Accent glass cards */
+.bc.gold{background:rgba(var(--aRGB),.07);border-color:rgba(var(--aRGB),.2)}
+.bc.gold::before{background:linear-gradient(135deg,rgba(var(--aRGB),.1) 0%,transparent 60%)}
+.bc.indigo{background:rgba(var(--a2RGB),.07);border-color:rgba(var(--a2RGB),.2)}
+.bc.indigo::before{background:linear-gradient(135deg,rgba(var(--a2RGB),.1) 0%,transparent 60%)}
+.bc.emerald{background:rgba(var(--a3RGB),.07);border-color:rgba(var(--a3RGB),.2)}
+.bi{font-size:32px;margin-bottom:1rem;display:block}
+.bc h3{font-family:var(--f-display);font-size:18px;font-weight:700;margin-bottom:7px;color:var(--txt)}
+.bc p{font-size:13px;color:var(--mute);line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:1rem}
+.tag{padding:4px 12px;border-radius:100px;font-family:var(--f-mono);font-size:11px;color:var(--mute2);border:1px solid var(--bdr);transition:border-color .2s,color .2s}
+.tag:hover{border-color:var(--a);color:var(--a)}
+.tag.hl{background:rgba(var(--aRGB),.12);color:var(--a);border-color:rgba(var(--aRGB),.25)}
+.tag.bl{background:rgba(var(--a2RGB),.12);color:var(--a2);border-color:rgba(var(--a2RGB),.25)}
+.bars{display:flex;flex-direction:column;gap:12px;margin-top:1.4rem}
+.bhd{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;margin-bottom:5px;color:var(--mute)}
+.bhd span:last-child{color:var(--txt);font-weight:600}
+.btr{height:3px;background:var(--bdr);border-radius:2px;overflow:hidden}
+.bf{height:100%;background:linear-gradient(90deg,var(--a2),var(--a));border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease)}
+.bf.go{transform:scaleX(1)}
+/* ════ EXPERIENCE ════════════════════════════════ */
+#exp{background:var(--bg2)}
+/* Sticky scroll layout - left stays, right scrolls */
+
+
+.exp-sticky-left h3{font-family:var(--f-display);font-size:clamp(28px,3.5vw,42px);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:1.2rem}
+.exp-sticky-left p{font-size:15px;color:var(--mute);line-height:1.82}
+/* Timeline entries */
+.timeline{display:flex;flex-direction:column;gap:0}
+.te{padding:2.2rem 0 2.2rem 2rem;border-left:1px solid var(--bdr);position:relative;cursor:default;transition:border-color .3s}
+.te:hover{border-color:rgba(var(--aRGB),.4)}
+.te::before{content:'';position:absolute;left:-5px;top:2.5rem;width:9px;height:9px;border-radius:50%;background:var(--bg2);border:2px solid var(--bdr);transition:border-color .3s,background .3s,box-shadow .3s}
+.te:hover::before{border-color:var(--a);background:var(--a);box-shadow:0 0 0 4px rgba(var(--aRGB),.2)}
+.te-yr{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:.5rem}
+.te h4{font-family:var(--f-display);font-size:19px;font-weight:700;color:var(--txt);margin-bottom:3px}
+.te-org{font-size:13px;color:var(--a2);font-weight:500;margin-bottom:.8rem;font-family:var(--f-mono)}
+.te p{font-size:13.5px;color:var(--mute);line-height:1.75}
+/* ════ B.ED COURSE ══════════════════════════════ */
+#bedcourse{background:var(--bg2)}
+.sem-strip{display:flex;gap:.6rem;margin:2rem 0 2.6rem;position:relative}
+.sbtn{padding:10px 28px;background:var(--glass);border:1px solid var(--bdr);border-radius:100px;font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--mute);cursor:none;transition:all .25s var(--ease);text-transform:uppercase;white-space:nowrap;backdrop-filter:blur(8px)}
+@media(max-width:768px){.sbtn{cursor:pointer}}
+.sbtn.on.s1{background:rgba(var(--a2RGB),.15);border-color:rgba(var(--a2RGB),.4);color:var(--a2);box-shadow:0 4px 16px rgba(var(--a2RGB),.2)}
+.sbtn.on.s2{background:rgba(var(--aRGB),.15);border-color:rgba(var(--aRGB),.4);color:var(--a);box-shadow:0 4px 16px rgba(var(--aRGB),.2)}
+.sbtn.on.s3{background:rgba(236,72,153,.15);border-color:rgba(236,72,153,.4);color:#f472b6;box-shadow:0 4px 16px rgba(236,72,153,.2)}
+.sbtn:not(.on):hover{border-color:var(--bdrS);color:var(--mute2)}
+.span{display:none}.span.on{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.3rem}
+.pcat{font-family:var(--f-mono);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:9px}
+.pc h3{font-family:var(--f-display);font-size:21px;font-weight:700;color:var(--txt);margin-bottom:10px;line-height:1.3}
+.pc p{font-size:15px;color:var(--mute);line-height:1.78;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+/* ════ PROJECTS ══════════════════════════════════ */
+#projects{background:var(--bg)}
+.tab-strip{display:flex;gap:0;border-bottom:1px solid var(--bdr);margin:2rem 0 2.8rem;position:relative;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
+.tab-strip::-webkit-scrollbar{display:none}
+.tbtn{padding:11px 22px;background:none;border:none;font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--mute);position:relative;transition:color .2s;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.tbtn.on{color:var(--txt)}
+.tab-indicator{position:absolute;bottom:-1px;height:2px;background:var(--a);transition:left .3s var(--ease),width .3s var(--ease)}
+.tpan{display:none}
+.tpan.on{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.3rem}
+/* Project cards - glassmorphism + hover lift */
+.pc{background:var(--glass);border:1px solid var(--bdr);border-radius:22px;overflow:hidden;cursor:pointer;transition:transform .4s var(--spring),box-shadow .4s,border-color .3s;position:relative;backdrop-filter:blur(8px)}
+.pc::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 50%);pointer-events:none}
+.pc:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 28px 56px rgba(0,0,0,.35);border-color:var(--bdrS)}
+.pci{aspect-ratio:16/9;background:linear-gradient(135deg,var(--bg),rgba(var(--a2RGB),.15));display:flex;align-items:center;justify-content:center;font-size:46px;position:relative;overflow:hidden}
+.pci img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pci-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,17,.6) 0%,transparent 60%)}
+.pcb{padding:20px}
+.pcat{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:7px}
+.pc h3{font-family:var(--f-display);font-size:17px;font-weight:700;color:var(--txt);margin-bottom:7px;line-height:1.3}
+.pc p{font-size:12.5px;color:var(--mute);line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc-arrow{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--mute);transition:background .25s,color .25s;backdrop-filter:blur(8px)}
+.pc:hover .pc-arrow{background:var(--a);color:#000;border-color:var(--a)}
+/* ════ AWARDS — GSAP HORIZONTAL SCROLL ══════════ */
+#awards{background:var(--bg2)}
+.hs-outer{overflow-x:auto;margin-top:2.5rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab}.hs-outer::-webkit-scrollbar{display:none}.hs-outer:active{cursor:grabbing}
+.hs-track{display:flex;gap:1.4rem;width:max-content;padding:0 5% 2rem}
+.ac{width:280px;flex-shrink:0;background:var(--glass);border:1px solid var(--bdr);backdrop-filter:blur(12px);border-radius:22px;padding:24px;transition:transform .35s var(--spring),border-color .3s;position:relative;overflow:hidden}
+.ac::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.04),transparent 60%);pointer-events:none}
+.ac:hover{transform:translateY(-4px);border-color:var(--bdrS)}
+.ac.feat{background:rgba(var(--aRGB),.08);border-color:rgba(var(--aRGB),.25)}
+.ac.feat::before{background:linear-gradient(135deg,rgba(var(--aRGB),.12),transparent 60%)}
+.aic{font-size:34px;margin-bottom:.9rem}
+.ac h3{font-family:var(--f-display);font-size:15.5px;font-weight:700;color:var(--txt);margin-bottom:7px}
+.ac p{font-size:12px;color:var(--mute);margin-bottom:12px;line-height:1.65}
+.abadge{display:inline-block;padding:3px 11px;background:rgba(var(--aRGB),.15);color:var(--a);border-radius:100px;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.05em}
+.hs-nav{display:flex;gap:8px;padding:0 5%}
+.hsbtn{width:40px;height:40px;border-radius:50%;background:var(--glass);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--txt);transition:border-color .2s,color .2s,background .2s;backdrop-filter:blur(8px)}
+.hsbtn:hover{border-color:var(--a);color:var(--a);background:rgba(var(--aRGB),.08)}
+/* ════ TESTIMONIALS — DUAL MARQUEE ══════════════ */
+#testi{background:var(--bg);overflow:hidden}
+.mq-wrap{margin-top:3rem;display:flex;flex-direction:column;gap:1rem}
+.mqr{overflow:hidden}
+.mqi{display:flex;gap:1rem;animation:mqL 36s linear infinite}
+.mqr.rv .mqi{animation:mqR 42s linear infinite}
+.mq-wrap:hover .mqi{animation-play-state:paused}
+@keyframes mqL{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes mqR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+.tc{min-width:300px;max-width:300px;background:var(--glass);border:1px solid var(--bdr);border-radius:18px;padding:20px;backdrop-filter:blur(8px);flex-shrink:0;transition:border-color .3s}
+.tc:hover{border-color:var(--bdrS)}
+.tcs{color:var(--a);font-size:12px;letter-spacing:3px;margin-bottom:9px}
+.tcq{font-size:13px;color:var(--mute);line-height:1.78;margin-bottom:13px;font-style:italic}
+.tcd{height:1px;background:var(--bdr);margin-bottom:13px}
+.tca{display:flex;align-items:center;gap:10px}
+.tcav{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--a2),var(--a));display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.tcn{font-size:13px;font-weight:600;color:var(--txt)}
+.tcr{font-family:var(--f-mono);font-size:10.5px;color:var(--mute);letter-spacing:.04em}
+/* ════ GALLERY MASONRY ═══════════════════════════ */
+#gallery{background:var(--bg2)}
+/* ── CREATIVE POLAROID COLLAGE ──────────────── */
+.collage-board{position:relative;background:var(--bg3);border-radius:24px;padding:3rem 2.5rem 2rem;margin-top:2.5rem;border:1px solid var(--bdr);background-image:radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:20px 20px;overflow:visible}
+[data-theme=light] .collage-board{background:#EDE8DF;background-image:radial-gradient(rgba(0,0,0,.05) 1px,transparent 1px);background-size:20px 20px}
+.collage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start}
+.polaroid{background:#FEFEFE;padding:10px 10px 40px;box-shadow:0 8px 28px rgba(0,0,0,.4),0 2px 6px rgba(0,0,0,.25),inset 0 0 0 1px rgba(0,0,0,.04);border-radius:2px;cursor:pointer;transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s,z-index 0s;position:relative;transform-origin:center bottom;z-index:1}
+[data-theme=light] .polaroid{box-shadow:0 6px 20px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.1)}
+.polaroid:hover{transform:var(--hr,rotate(0)) scale(1.1) translateY(-12px) !important;box-shadow:0 24px 56px rgba(0,0,0,.5),0 8px 20px rgba(0,0,0,.3);z-index:20}
+.polaroid.r1{transform:rotate(-3.5deg);--hr:rotate(-3.5deg)}
+.polaroid.r2{transform:rotate(2.5deg);--hr:rotate(2.5deg)}
+.polaroid.r3{transform:rotate(-1.8deg);--hr:rotate(-1.8deg)}
+.polaroid.r4{transform:rotate(3.8deg);--hr:rotate(3.8deg)}
+.polaroid.r5{transform:rotate(-2.4deg);--hr:rotate(-2.4deg)}
+.polaroid.r6{transform:rotate(1.2deg);--hr:rotate(1.2deg)}
+.polaroid.r7{transform:rotate(-4.2deg);--hr:rotate(-4.2deg)}
+.polaroid.r8{transform:rotate(2.8deg);--hr:rotate(2.8deg)}
+.polaroid.r9{transform:rotate(-0.8deg);--hr:rotate(-0.8deg)}
+.polaroid.wide{grid-column:span 2}
+.p-img{width:100%;aspect-ratio:1;overflow:hidden;background:var(--bg2);display:block}
+.polaroid.wide .p-img{aspect-ratio:2/1}
+.polaroid.tall .p-img{aspect-ratio:3/4}
+.p-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.polaroid:hover .p-img img{transform:scale(1.08)}
+.p-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,#e0e0e0,#c8c8c8)}
+.p-cap{text-align:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:#2a2a2a;letter-spacing:.02em;margin-top:10px;line-height:1.5;padding:0 6px}
+/* Pin */
+.pin{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;box-shadow:0 3px 8px rgba(0,0,0,.5),inset 0 -2px 3px rgba(0,0,0,.3);z-index:3}
+.pin::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.45)}
+.pin-gold{background:radial-gradient(circle at 38% 32%,#FFE066,#C8960A)}
+.pin-red{background:radial-gradient(circle at 38% 32%,#FF8080,#C0392B)}
+.pin-blue{background:radial-gradient(circle at 38% 32%,#80C0FF,#1A6BAE)}
+.pin-green{background:radial-gradient(circle at 38% 32%,#80E0B0,#1A8A50)}
+/* Tape */
+.tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-2deg);width:52px;height:20px;background:rgba(255,240,160,.55);border:1px solid rgba(200,180,80,.25);backdrop-filter:blur(2px);z-index:3;border-radius:2px}
+/* Collage footer */
+.collage-footer{text-align:center;margin-top:2rem;font-family:var(--f-mono);font-size:11px;color:var(--mute);letter-spacing:.08em;opacity:.7}
+@media(max-width:1100px){.collage-grid{grid-template-columns:repeat(2,1fr)}.polaroid.wide{grid-column:span 2}}
+@media(max-width:768px){.collage-grid{grid-template-columns:repeat(2,1fr)}.polaroid.wide{grid-column:span 2}.collage-board{padding:2rem 1.2rem}}
+/* ════ FAQ ════════════════════════════════════════ */
+#faq{background:var(--bg)}
+.flist{margin-top:3rem}
+.fi{border-bottom:1px solid var(--bdr);transition:border-color .3s}
+.fi:hover{border-color:var(--bdrS)}
+.fq{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 0;background:none;border:none;font-size:15.5px;font-weight:500;color:var(--txt);text-align:left;transition:color .25s;font-family:var(--f-body)}
+.fq:hover{color:var(--a)}
+.fic{width:28px;height:28px;border-radius:50%;background:var(--glass);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--mute);transition:transform .35s var(--spring),background .25s,color .25s,border-color .25s;flex-shrink:0}
+.fi.on .fic{transform:rotate(45deg);background:rgba(var(--aRGB),.12);color:var(--a);border-color:rgba(var(--aRGB),.3)}
+.fa{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.fi.on .fa{max-height:320px}
+.fat{font-size:16px;color:var(--mute);line-height:1.85;padding-bottom:20px}
+.fat em{display:block;font-style:italic;font-size:13.5px;margin-top:9px;color:var(--mute2);border-left:2px solid var(--bdr);padding-left:.8rem}
+/* ════ CONTACT ════════════════════════════════════ */
+#contact{background:var(--bg2)}
+.cgrid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
+.ci p{font-size:15px;color:var(--mute);line-height:1.85;margin-bottom:1.8rem}
+.clinks{display:flex;flex-direction:column;gap:.9rem}
+.cl{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--mute);transition:color .25s}
+.cl:hover{color:var(--a)}
+.clic{width:42px;height:42px;border-radius:12px;background:var(--glass);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
+.cl:hover .clic{border-color:rgba(var(--aRGB),.4);background:rgba(var(--aRGB),.08)}
+.clt{font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--txt);margin-bottom:2px}
+.clv{font-size:12.5px}
+/* Glassmorphism form card */
+.cform-card{background:rgba(255,255,255,.03);border:1px solid var(--glassB);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:24px;padding:36px;box-shadow:0 32px 64px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06)}
+.cform-card h3{font-family:var(--f-display);font-size:22px;font-weight:700;margin-bottom:1.6rem;color:var(--txt)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.fg input,.fg textarea{width:100%;padding:12px 15px;background:rgba(255,255,255,.04);border:1px solid var(--bdr);border-radius:11px;color:var(--txt);font-family:var(--f-body);font-size:14px;transition:border-color .25s,background .25s;resize:vertical}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--a);background:rgba(var(--aRGB),.04)}
+.fg textarea{min-height:110px}
+[data-theme=light] .fg input,[data-theme=light] .fg textarea{background:rgba(255,255,255,.8);color:#111}
+/* ════ MODAL ══════════════════════════════════════ */
+#modal{position:fixed;inset:0;background:rgba(6,8,17,.85);backdrop-filter:blur(12px);z-index:10000;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+#modal.on{opacity:1;visibility:visible}
+.mpan{background:var(--bg2);border:1px solid var(--bdrS);border-radius:24px;padding:36px;max-width:560px;width:100%;transform:scale(.88) translateY(20px);transition:transform .4s var(--spring);max-height:90vh;overflow-y:auto;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+#modal.on .mpan{transform:scale(1) translateY(0)}
+.mhd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.4rem}
+.mcl{background:var(--glass);border:1px solid var(--bdr);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--mute);transition:color .2s,border-color .2s;backdrop-filter:blur(8px)}
+.mcl:hover{color:var(--txt);border-color:var(--bdrS)}
+.mbdy{font-size:14px;color:var(--mute);line-height:1.85}
+.mbdy strong{color:var(--txt)}
+/* ════ FOOTER ══════════════════════════════════════ */
+footer{background:var(--bg);border-top:1px solid var(--bdr);padding:3rem 0}
+.ft{max-width:1360px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.flogo{font-family:var(--f-display);font-size:20px;font-weight:700;letter-spacing:-.03em}
+.flogo em{color:var(--a);font-style:normal}
+.fcopy{font-family:var(--f-mono);font-size:11px;color:var(--mute);letter-spacing:.06em}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{font-family:var(--f-mono);font-size:11px;color:var(--mute);letter-spacing:.06em;transition:color .2s}
+.flinks a:hover{color:var(--a)}
+/* ════ REVEAL UTIL ════════════════════════════════ */
+/* GSAP controls all reveal animations — no CSS conflict */
+.rev{opacity:0}.rev.d1{}.rev.d2{}.rev.d3{}
+/* ════ RESPONSIVE ══════════════════════════════════ */
+@media(max-width:1100px){.bento{grid-template-columns:repeat(2,1fr)}.bc.s2{grid-column:auto}.msnry{columns:2}.agrid{grid-template-columns:1fr}.hgrid{grid-template-columns:1fr}}
+@media(max-width:768px){.navl,.cta-clay{display:none}.ham{display:flex}.hvis{display:none}.hgrid{gap:0;padding-top:calc(var(--navH)+2rem);min-height:auto;padding-bottom:4rem}.avis{display:none}.bento{grid-template-columns:1fr}.bc.s2,.bc.sr{grid-column:auto;grid-row:auto}.cgrid{grid-template-columns:1fr}.frow{grid-template-columns:1fr}#dotnav{display:none}.msnry{columns:1}.infogrid{grid-template-columns:1fr}.hstats{gap:1.5rem}.pad{padding:80px 0}}
+
+.span.on .rev { opacity: 1 !important; transform: none !important; }
+
+/* ── SEMESTER 3 CARD DOCUMENT BUTTONS ──────────────── */
+.span.on .rev { opacity: 1 !important; transform: none !important; }
+.card-doc-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+.card-doc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  border-radius: 100px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+  backdrop-filter: blur(8px);
+}
+.card-doc-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+</style>
+</head>
+<body>
+<!-- CURSOR -->
+<div id="cursor"><div id="cursor-dot"></div></div>
+<div id="cursor-ring"></div>
+<!-- PROGRESS -->
+<div id="prog"><div id="pfill"></div></div>
+<!-- LOADER -->
+<div id="ldr">
+  <div class="l-name"><span>Suvarna</span><span>Purkar</span></div>
+  <div class="l-role"><span>B.Ed. (Pursuing) · Nashik</span></div>
+  <div class="l-bar-wrap"><div class="l-bar"></div></div>
+  <div class="l-pct" id="lpct">0%</div>
+</div>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <div style="display:flex;align-items:center;gap:1.4rem">
+      <a href="#hero" style="display:flex;align-items:center;gap:.7rem;text-decoration:none">
+        <img src="https://drive.google.com/thumbnail?id=1Riq9Mxe_AWDUIgQcbegLnWpnC7_pJDKN&sz=w120" alt="MSVM Logo" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(245,158,11,.35);flex-shrink:0">
+        <div>
+          <div style="font-family:var(--f-mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.3">MSVM's New College of Education</div>
+          <div class="logo" style="font-size:18px;line-height:1">S<em>.</em>Purkar</div>
+        </div>
+      </a>
+    </div>
+    <ul class="navl">
+      <li><a href="#about">About</a></li>
+      <li><a href="#bedcourse">B.Ed Course</a></li>
+      <li><a href="#bedcourse" onclick="document.querySelector('.sbtn.s3')?.click()">Semester 3</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-r">
+      <button class="thm" id="thm" data-hover>🌙</button>
+      <a href="#contact" class="cta-clay" data-hover>Get in Touch</a>
+      <button class="ham" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<!-- MOBILE MENU -->
+<div id="mob">
+  <a href="#about"     class="mlink">About</a>
+  <a href="#bedcourse" class="mlink">B.Ed Course</a>
+  <a href="#bedcourse" class="mlink" onclick="document.querySelector('.sbtn.s3')?.click()">Semester 3</a>
+  <a href="#awards"    class="mlink">Awards</a>
+  <a href="#reflection" class="mlink">Reflection</a>
+  <a href="#contact"   class="mlink">Contact</a>
+</div>
+<!-- DOT NAV -->
+<nav id="dotnav">
+  <div class="dn on"  data-s="hero"      data-l="Home"></div>
+  <div class="dn"     data-s="about"     data-l="About"></div>
+  <div class="dn"     data-s="bedcourse" data-l="B.Ed Course"></div>
+  <div class="dn"     data-s="awards"    data-l="Awards"></div>
+  <div class="dn"     data-s="testi"     data-l="Testimonials"></div>
+  <div class="dn"     data-s="reflection" data-l="Reflection"></div>
+  <div class="dn"     data-s="contact"   data-l="Contact"></div>
+</nav>
+<!-- COLLEGE BANNER -->
+<div id="college-banner" style="background:linear-gradient(135deg,rgba(13,15,26,.98),rgba(18,21,43,.98));border-bottom:1px solid rgba(245,158,11,.2);padding:.7rem 5%;position:relative;z-index:999;margin-top:var(--navH)">
+  <div style="max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:1.4rem;flex-wrap:wrap;text-align:center">
+    <img src="https://drive.google.com/thumbnail?id=1Riq9Mxe_AWDUIgQcbegLnWpnC7_pJDKN&sz=w300" alt="Maharashtra Shikshan Vikas Mandal Logo" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(245,158,11,.4);flex-shrink:0">
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(13px,2vw,17px);font-weight:700;color:#F1F1EE;letter-spacing:.01em;line-height:1.3">Maharashtra Shikshan Vikas Mandal's &nbsp;<span style="color:#F59E0B">New College of Education</span></div>
+      <div style="font-family:var(--f-mono);font-size:10.5px;color:#6B7280;letter-spacing:.06em;margin-top:3px">Bhor Township, Satpur Ambad Link Road, Nashik — 422 010 &nbsp;·&nbsp; Affiliated to SPPU Pune &nbsp;·&nbsp; बहुजन हिताय बहुजन सुखाय</div>
+    </div>
+  </div>
+</div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+    <div class="hero-grid-lines"></div>
+  </div>
+  <div class="w" style="width:100%">
+    <div class="hgrid">
+      <div>
+        <div class="hero-sup">✦ IT Educator &nbsp;·&nbsp; Nashik, Maharashtra</div>
+        <h1 class="hero-h">
+          <span class="italic-line"><span>शिकणे हीच सर्वश्रेष्ठ उपासना</span></span>
+          <span class="line"><span>Passionate</span></span>
+          <span class="line"><span>to Learn <span class="g">New</span></span></span>
+          <span class="line"><span>Technology</span></span>
+        </h1>
+        <p class="hero-sub">
+          <strong>Suvarna Dasharath Purkar</strong> — B.Ed. Scholar at MSVM's New College of Education, Nashik. Lifelong learner, technology enthusiast &amp; CSI Best Teacher Awardee.
+        </p>
+        <div class="hbtns">
+          <a href="#bedcourse" class="btn-clay" data-hover>View My Work</a>
+          <a href="https://drive.google.com/uc?export=download&id=17rNuZdYYo5lXFyQrZldklag5_Ccb9JON" target="_blank" class="btn-ghost" data-hover>⬇&nbsp; Download CV</a>
+        </div>
+
+        <!-- Teaching Philosophy — Criterion 2 -->
+        <div style="margin-top:2rem;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:16px;padding:20px 22px;backdrop-filter:blur(10px)" class="rev">
+          <div style="font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:8px">✦ Teaching Philosophy · अध्यापन तत्त्वज्ञान</div>
+          <p style="font-size:13.5px;color:var(--mute);line-height:1.8;font-style:italic">"Every student is capable of learning when taught with patience, empathy, and purpose. Technology is not just a subject — it is a language for the future. My role is to make that language accessible to every learner, regardless of their background."</p>
+        </div>
+      </div>
+      </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Scroll to explore</div>
+</section>
+<!-- SKILLS TICKER -->
+<div id="ticker">
+  <div class="ticker-inner" id="tick">
+    <span class="tick-item">C / C++ <span class="tick-sep">✦</span></span>
+    <span class="tick-item">Java <span class="tick-sep">✦</span></span>
+    <span class="tick-item">Python <span class="tick-sep">✦</span></span>
+    <span class="tick-item">HTML / JavaScript <span class="tick-sep">✦</span></span>
+    <span class="tick-item">Arduino IoT <span class="tick-sep">✦</span></span>
+    <span class="tick-item">Oracle / MySQL <span class="tick-sep">✦</span></span>
+    <span class="tick-item">ICT Training <span class="tick-sep">✦</span></span>
+    <span class="tick-item">Cyber Safety <span class="tick-sep">✦</span></span>
+    <span class="tick-item">NEP 2020 <span class="tick-sep">✦</span></span>
+    <span class="tick-item">B.Ed. Scholar <span class="tick-sep">✦</span></span>
+  </div>
+</div>
+<!-- ABOUT -->
+<section id="about" class="pad">
+  <div class="w">
+    <div class="agrid">
+      <div>
+        <div class="chip rev">About Me · माझ्याबद्दल</div>
+        <h2 class="sh rev" style="margin-bottom:1.4rem">A B.Ed Scholar Who<br><span class="g">Inspires Every Day</span></h2>
+        <div class="glass-tag rev">Currently pursuing B.Ed. · MSVM's New College of Education, Nashik</div>
+        <p class="ap rev">I am Suvarna Dasharath Purkar — currently a full-time B.Ed. Scholar at MSVM's New College of Education, Nashik. With a B.C.S. and M.C.A. from the University of Pune and a background of <strong style="color:var(--txt)">22 years of IT teaching experience</strong> in prior career, I bring rich classroom wisdom to my B.Ed. studies.</p>
+        <p class="ap rev d1">Now fully devoted to my B.Ed. studies, I am deepening my understanding of pedagogy, curriculum design, and educational theory — connecting it to my real-world classroom experience. I have previously conducted <strong style="color:var(--txt)">Arduino/IoT workshops, Python courses</strong>, and ICT teacher training. Honoured with the <strong style="color:var(--a)">CSI Best Teacher Award</strong> and <strong style="color:var(--a)">Gunwant Shikshak Award</strong>.</p>
+        <p class="ap rev d2">I continue to create Marathi-language digital content on Cyber Safety, author research papers on startup ecosystems and e-commerce, and work to bridge the gap between technology and the community — even while studying full-time.</p>
+        <blockquote class="blockq rev d2">"शिक्षण हे सर्वश्रेष्ठ शस्त्र आहे जे तुम्ही जगाला बदलण्यासाठी वापरू शकता." — नेल्सन मंडेला</blockquote>
+        <div class="infogrid rev d3">
+          <div><div class="info-lbl">Full Name</div><div class="info-val">Suvarna D. Purkar</div></div>
+          <div><div class="info-lbl">Role · भूमिका</div><div class="info-val">B.Ed. Scholar (Full-time)</div></div>
+          <div><div class="info-lbl">Institution</div><div class="info-val">MSVM's New College of Education</div></div>
+          <div><div class="info-lbl">Qualification</div><div class="info-val">B.C.S. · M.C.A. · B.Ed.</div></div>
+          <div><div class="info-lbl">Location</div><div class="info-val">Govind Nagar, Nashik — 422009</div></div>
+          <div><div class="info-lbl">Teaching Experience</div><div class="info-val">22+ Years (2002–2024)</div></div>
+          <div><div class="info-lbl">Languages</div><div class="info-val">Marathi · Hindi · English</div></div>
+          <div><div class="info-lbl">Email</div><div class="info-val">suvarna158@gmail.com</div></div>
+        </div>
+
+      </div>
+      <div class="aphoto-frame avis rev d1">
+        <div class="aphoto-glass">
+          <img src="https://drive.google.com/thumbnail?id=11oY_DZWrNfCTrbphIUcTSC_MHrE2uIpN&sz=w800" alt="Suvarna Dasharath Purkar" onerror="this.src='https://drive.google.com/thumbnail?id=11oY_DZWrNfCTrbphIUcTSC_MHrE2uIpN&sz=w800'">
+        </div>
+        <div class="neuro-stat">
+          <div class="ns-num">🎓</div>
+          <div class="ns-lbl">Always Learning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- GOALS & VISION SECTION -->
+<section id="goalsvision" style="background:var(--bg);padding:80px 0">
+  <div class="w">
+    <div style="text-align:center;margin-bottom:3rem">
+      <div class="chip rev" style="justify-content:center">Vision &amp; Goals · दृष्टीकोन आणि उद्दिष्टे</div>
+      <h2 class="sh rev">My <span class="g">Vision &amp; Goals</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem" class="rev">
+      <!-- Vision Card -->
+      <div style="background:linear-gradient(135deg,rgba(99,102,241,.18) 0%,rgba(168,85,247,.15) 100%);border:1.5px solid rgba(168,85,247,.4);border-radius:22px;padding:36px;backdrop-filter:blur(12px);position:relative;overflow:hidden">
+        <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(168,85,247,.3),transparent);border-radius:50%;pointer-events:none"></div>
+        <div style="position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(99,102,241,.25),transparent);border-radius:50%;pointer-events:none"></div>
+        <div style="font-size:40px;margin-bottom:1rem">🎯</div>
+        <div style="font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#e879f9;margin-bottom:1rem">Vision · दृष्टीकोन</div>
+        <h3 style="font-family:var(--f-display);font-size:24px;font-weight:800;color:#f0abfc;line-height:1.3;margin-bottom:1rem">Shaping Tomorrow's<br>Digital Citizens</h3>
+        <p style="font-size:16px;color:#e9d5ff;line-height:1.9;font-weight:500">My vision is to nurture digitally literate, critically thinking learners who use technology responsibly and creatively to solve real-world problems — bridging the gap between community and classroom in Maharashtra.</p>
+        <div style="margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="background:rgba(232,121,249,.22);color:#f0abfc;border-radius:100px;padding:6px 16px;font-family:var(--f-mono);font-size:12px;font-weight:700;border:1px solid rgba(240,171,252,.35)">Digital Literacy</span>
+          <span style="background:rgba(232,121,249,.22);color:#f0abfc;border-radius:100px;padding:6px 16px;font-family:var(--f-mono);font-size:12px;font-weight:700;border:1px solid rgba(240,171,252,.35)">Critical Thinking</span>
+          <span style="background:rgba(232,121,249,.22);color:#f0abfc;border-radius:100px;padding:6px 16px;font-family:var(--f-mono);font-size:12px;font-weight:700;border:1px solid rgba(240,171,252,.35)">Community Impact</span>
+        </div>
+      </div>
+      <!-- Goals Card -->
+      <div style="background:linear-gradient(135deg,rgba(6,182,212,.16) 0%,rgba(20,184,166,.14) 100%);border:1.5px solid rgba(20,184,166,.4);border-radius:22px;padding:36px;backdrop-filter:blur(12px);position:relative;overflow:hidden">
+        <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(20,184,166,.28),transparent);border-radius:50%;pointer-events:none"></div>
+        <div style="position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(6,182,212,.22),transparent);border-radius:50%;pointer-events:none"></div>
+        <div style="font-size:40px;margin-bottom:1rem">🚀</div>
+        <div style="font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#34d399;margin-bottom:1rem">Goals · उद्दिष्टे</div>
+        <h3 style="font-family:var(--f-display);font-size:24px;font-weight:800;color:#6ee7b7;line-height:1.3;margin-bottom:1rem">Growing with Purpose<br>&amp; Excellence</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:.2rem">
+          <div style="display:flex;align-items:flex-start;gap:.8rem">
+            <span style="color:#34d399;font-size:20px;flex-shrink:0;margin-top:1px">✦</span>
+            <p style="font-size:16px;color:#a7f3d0;line-height:1.8;font-weight:500">Successfully complete B.Ed. with excellence, deepening pedagogical understanding and reflective practice.</p>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.8rem">
+            <span style="color:#34d399;font-size:20px;flex-shrink:0;margin-top:1px">✦</span>
+            <p style="font-size:16px;color:#a7f3d0;line-height:1.8;font-weight:500">Integrate AI and IoT meaningfully into everyday classroom practice for enhanced student engagement.</p>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.8rem">
+            <span style="color:#34d399;font-size:20px;flex-shrink:0;margin-top:1px">✦</span>
+            <p style="font-size:16px;color:#a7f3d0;line-height:1.8;font-weight:500">Develop bilingual (Marathi–English) digital content that makes learning accessible to all.</p>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.8rem">
+            <span style="color:#34d399;font-size:20px;flex-shrink:0;margin-top:1px">✦</span>
+            <p style="font-size:16px;color:#a7f3d0;line-height:1.8;font-weight:500">Mentor and inspire the next generation of IT teachers across Maharashtra through ICT training.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- B.ED COURSE -->
+<section id="bedcourse" class="pad">
+  <div class="w">
+    <div class="chip rev">B.Ed Course · बी.एड अभ्यासक्रम</div>
+    <h2 class="sh rev">B.Ed. <span class="g">Course Work</span></h2>
+    <p style="font-size:14px;color:var(--mute);margin-top:.6rem;margin-bottom:.2rem" class="rev">MSVM's New College of Education, Nashik · Affiliated to SPPU Pune</p>
+    <div class="sem-strip rev">
+      <button class="sbtn s1" data-sp="sp-sem1">📘 SEM 1</button>
+      <button class="sbtn s2" data-sp="sp-sem2">📙 SEM 2</button>
+      <button class="sbtn s3 on" data-sp="sp-sem3">📕 SEM 3</button>
+    </div>
+    <!-- SEM 1 PANEL -->
+    <div class="span" id="sp-sem1">
+      <!-- 101 : sky blue -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(14,165,233,.13),rgba(56,189,248,.07));border-color:rgba(56,189,248,.35)" onclick="window.open('https://drive.google.com/drive/folders/1TwMzFl9VnySUhxkKi1SXyXK0B8Q58mKE','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#061828,#0e4a72)"><span style="font-size:44px">👶</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#38bdf8">SEM 1 · Course 101</div><h3 style="color:#e0f7ff">Childhood and Growing Up</h3><p>Study of child development, growth stages, cognitive theories (Piaget, Vygotsky) and their implications for classroom teaching.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 102 : emerald green -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(16,185,129,.13),rgba(52,211,153,.07));border-color:rgba(52,211,153,.35)" onclick="window.open('https://drive.google.com/drive/folders/1O6h6y0Z-ce5bhufU7ymoNl7apdIR70dy','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#061c10,#0e4a28)"><span style="font-size:44px">🇮🇳</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#34d399">SEM 1 · Course 102</div><h3 style="color:#d1fae5">Contemporary Indian Education, Gender &amp; Society</h3><p>Critical study of Indian education system, gender equality in education, and NEP 2020 policy framework.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 103 : violet -->
+      <div class="pc rev d2" style="background:linear-gradient(135deg,rgba(139,92,246,.13),rgba(167,139,250,.07));border-color:rgba(167,139,250,.35)" onclick="window.open('https://drive.google.com/drive/folders/19T_5CNrIr6N4noZkYtBJzJtIFGGyt5cx','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#130422,#36126a)"><span style="font-size:44px">📐</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#a78bfa">SEM 1 · Course 103</div><h3 style="color:#ede9fe">Understanding the Disciplines and School Subjects</h3><p>Exploring the nature of knowledge across school disciplines including Computer Science, Mathematics, and Sciences.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 104 : fuchsia/pink -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(217,70,239,.13),rgba(240,114,255,.07));border-color:rgba(240,114,255,.35)" onclick="window.open('https://drive.google.com/drive/folders/179gZMKb5Urcj5Uw6C4aNMI-HFuriGnFi','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#1a0626,#600a78)"><span style="font-size:44px">🧑‍🏫</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#e879f9">SEM 1 · Course 104</div><h3 style="color:#fae8ff">Pedagogy of School Subjects</h3><p>Pedagogical approaches for teaching IT and Computer Science — strategies, methods and tools for effective subject delivery.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 105 : amber/orange -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(245,158,11,.13),rgba(251,191,36,.07));border-color:rgba(251,191,36,.35)" onclick="window.open('https://drive.google.com/drive/folders/1idHg8jLn7j4-z-AdPD4Ks-IURTrP4jQa','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#1e0e00,#5e3000)"><span style="font-size:44px">🎙️</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#fbbf24">SEM 1 · Course 105</div><h3 style="color:#fef3c7">Teaching Competency I — Micro Teaching</h3><p>Micro-teaching practice sessions including digital lessons, skill development in set induction, explanation, and questioning.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 106 : cyan -->
+      <div class="pc rev d2" style="background:linear-gradient(135deg,rgba(6,182,212,.13),rgba(34,211,238,.07));border-color:rgba(34,211,238,.35)" onclick="window.open('https://drive.google.com/drive/folders/18XI8kd05OPn7CTSWefUPFg0UygoCpZjd','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#041820,#0c5060)"><span style="font-size:44px">📋</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#22d3ee">SEM 1 · Course 106</div><h3 style="color:#cffafe">Planning for Teaching &amp; Evaluation</h3><p>Annual, unit and daily lesson plans for IT. Reading and Reflection on educational texts and curriculum documents.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 107 : lime green -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(132,204,22,.13),rgba(163,230,53,.07));border-color:rgba(163,230,53,.35)" onclick="window.open('https://drive.google.com/drive/folders/1pKxVQDhV7caq2mVZCk5LaFxnfjO5VyfH','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#0c1a02,#2e5008)"><span style="font-size:44px">🧘‍♀️</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#a3e635">SEM 1 · Course 107</div><h3 style="color:#ecfccb">Health &amp; Wellness Education + Yoga</h3><p>Health awareness activities, wellness programmes, and yoga education sessions conducted as part of B.Ed. curriculum.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 108 : rose/coral -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(244,63,94,.13),rgba(251,113,133,.07));border-color:rgba(251,113,133,.35)" onclick="window.open('https://drive.google.com/drive/folders/1CS887bABTXtvAIsqj_HWFFwmuR3k3kxf','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#1e0610,#6a0c26)"><span style="font-size:44px">📁</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#fb7185">SEM 1 · Course 108</div><h3 style="color:#ffe4e6">Understanding of Self</h3><p>Developing a professional teaching portfolio, self-reflection exercises, and personal growth documentation for B.Ed.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- SEM 1 Result : gold -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(234,179,8,.13),rgba(253,224,71,.07));border-color:rgba(253,224,71,.35)" onclick="window.open('https://drive.google.com/file/d/1u6Pg2QC7-z2LRgd8IzpD3VW0ct51-QQz/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#1a1000,#4a3000)"><span style="font-size:44px">🏅</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#fde047">SEM 1 · Result</div><h3 style="color:#fefce8">1st Semester Result</h3><p>Official B.Ed. First Semester examination result — reflecting academic performance across all theory and practical courses.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <div style="grid-column:1/-1">
+        <!-- ===== SEM 1 GALLERY HEADER ===== -->
+        <div style="background:linear-gradient(135deg,rgba(14,165,233,.2),rgba(56,189,248,.12));border:2px solid rgba(56,189,248,.5);border-radius:20px;padding:22px 30px;margin-bottom:2.2rem">
+          <div style="font-family:var(--f-mono);font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#7dd3fc;margin-bottom:5px">📘 SEM 1 Gallery</div>
+          <div style="font-size:17px;color:#e0f7ff;font-weight:600;line-height:1.5">106 Reading &amp; Reflection · 107B Health &amp; Wellness Poster</div>
+        </div>
+
+        <!-- 106 Reading & Reflection -->
+        <div style="background:linear-gradient(135deg,#061828,#0a3050);border:2px solid #38bdf8;border-radius:18px;padding:28px;margin-bottom:1.6rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#7dd3fc;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(56,189,248,.3)">📖 106 · Reading and Reflection</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:400px">
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1c6q0gzjbCdvKcnYYssHKff1V60t2ptr3&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">106 B - Reading and Reflection 1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 107B Poster -->
+        <div style="background:linear-gradient(135deg,#0c1a02,#1c3a06);border:2px solid #a3e635;border-radius:18px;padding:28px;margin-bottom:3rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#bef264;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(163,230,53,.3)">🧘 107B · Health &amp; Wellness Poster</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:600px">
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1Qx3p8bASRg8yjUA2kKHPHgEVHFgZHjeZ&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">207 A - Poster (व्यायाम निरोगी जीवनाची गुरुकिल्ली)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- SEM 2 PANEL -->
+    <div class="span" id="sp-sem2">
+      <!-- 201 : indigo -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(99,102,241,.14),rgba(129,140,248,.07));border-color:rgba(129,140,248,.38)" onclick="window.open('https://drive.google.com/file/d/1X8_fDwLflwuBoSIpdfxosKNqSYC8Saoi/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#080a28,#1a1e6a)"><span style="font-size:44px">🧠</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#818cf8">SEM 2 · Course 201</div><h3 style="color:#e0e7ff">Learning and Teaching</h3><p>Panchapadi-based lesson plan for school subject. Topics: Toothpaste, Detergent. Prepared for Science — student-centred approach. Score: 36/50.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 202 : teal -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(20,184,166,.14),rgba(45,212,191,.07));border-color:rgba(45,212,191,.38)" onclick="window.open('https://drive.google.com/file/d/1ov2e3WctNKlWlaXAyHDbgO3o4CtaXRw6/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#041818,#0c4a44)"><span style="font-size:44px">📊</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#2dd4bf">SEM 2 · Course 202</div><h3 style="color:#ccfbf1">Assessment &amp; Evaluation for Learning</h3><p>Achievement/Diagnostic test with Blue Print, Answer Key and Marks Distribution. Content validated by expert. Feedback: "Language use appropriate."</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 203 : orange -->
+      <div class="pc rev d2" style="background:linear-gradient(135deg,rgba(249,115,22,.14),rgba(251,146,60,.07));border-color:rgba(251,146,60,.38)" onclick="window.open('https://drive.google.com/file/d/1vsKC_hABq81vRHDrd6zBnaJfSbIRqcCi/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#1e0800,#602000)"><span style="font-size:44px">🖼️</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#fb923c">SEM 2 · Course 203</div><h3 style="color:#ffedd5">Indian Knowledge System in Education</h3><p>Educational poster presentation activity — creating and presenting visual learning materials with photos and video documentation.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 204 : deep sky -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(2,132,199,.14),rgba(56,189,248,.07));border-color:rgba(56,189,248,.38)" onclick="window.open('https://drive.google.com/file/d/1rJNImtJAvi89OaQGGwWSM5vJjDLnEVVp/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#021428,#065888)"><span style="font-size:44px">🎓</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#38bdf8">SEM 2 · Course 204</div><h3 style="color:#e0f2fe">Practice Teaching — 6 Lessons</h3><p>6 supervised practice lessons at Manpa Madhyamik Vidyalay, Pathardi Gaon, Nashik. Subjects: Science &amp; Maths. Scores: 75–88/100. L1: Chemical Substances · L2: Plastics · L3: Genetic Disorders · L4: Compound Interest · L5: Income Tax · L6: Linear Equations.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 205 : gold/yellow -->
+      <div class="pc rev d2" style="background:linear-gradient(135deg,rgba(234,179,8,.14),rgba(253,224,71,.07));border-color:rgba(253,224,71,.38)" onclick="window.open('https://drive.google.com/file/d/1TcS173T2ivBEG6pufT8v-oVDFxJZBjTi/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#181000,#4e3800)"><span style="font-size:44px">🏫</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#fde047">SEM 2 · Course 205</div><h3 style="color:#fefce8">School Internship Programme</h3><p>Full internship documentation at Nashik school — Women's Day, Science Day, Marathi Gaurav Din, Indoor/Outdoor activities, Observation, Lectures, Send-off.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 206-A : pink/magenta -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(236,72,153,.14),rgba(244,114,182,.07));border-color:rgba(244,114,182,.38)" onclick="window.open('https://drive.google.com/file/d/1q7hidSkvFV-Hjk8CvyTHQwdvzR4BGN9_/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#1e0418,#6a0a46)"><span style="font-size:44px">📚</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#f472b6">SEM 2 · Course 206-A</div><h3 style="color:#fce7f3">Pustak Din — Book Day</h3><p>Book Day (Pustak Din) celebration activity promoting reading culture and literature appreciation among B.Ed. students and faculty members.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 206-B : electric blue -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(59,130,246,.14),rgba(96,165,250,.07));border-color:rgba(96,165,250,.38)" onclick="window.open('https://drive.google.com/file/d/1NiPyD7mSP1DF5YxtsGcS1crFDC-yGgcK/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#040e28,#0c2e7a)"><span style="font-size:44px">💡</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#60a5fa">SEM 2 · Course 206-B</div><h3 style="color:#dbeafe">Digital Initiative</h3><p>Digital initiative project under Course 206 — leveraging technology for innovative educational outreach and digital content delivery.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 207 : purple -->
+      <div class="pc rev d2" style="background:linear-gradient(135deg,rgba(168,85,247,.14),rgba(192,132,252,.07));border-color:rgba(192,132,252,.38)" onclick="window.open('https://drive.google.com/file/d/1SKqLujNOMaP5yq7zSFgwFftroUpf4pRc/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#0e0420,#380e6a)"><span style="font-size:44px">🛡️</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#c084fc">SEM 2 · Course 207</div><h3 style="color:#f3e8ff">Application of ICT and Digital Learning</h3><p>Complete Cyber Safety course file — Marathi infographics, videos on online fraud, phishing, digital arrest, data protection. Maharashtra Helpline: 1930.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 208-A : emerald -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(16,185,129,.14),rgba(52,211,153,.07));border-color:rgba(52,211,153,.38)" onclick="window.open('https://drive.google.com/file/d/1HUXMgyMzKOd2or-7fD9dZW1orxixh9V6/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#041a10,#0c5230)"><span style="font-size:44px">👩‍⚕️</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#34d399">SEM 2 · Course 208-A</div><h3 style="color:#d1fae5">Community Engagement — Women's Health Awareness</h3><p>"महिला आरोग्य जनजागृती व सक्षमीकरण" — Women's Health Awareness &amp; Empowerment programme. Score: <strong style="color:#34d399">45/50</strong>. Feedback: "Community participation excellent."</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <!-- 208-B : warm amber -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(245,158,11,.14),rgba(251,191,36,.07));border-color:rgba(251,191,36,.38)" onclick="window.open('https://drive.google.com/file/d/1EmFyR_5oSQK1hv-Gipiyw9iASr5TV8V0/view','_blank')">
+        <div class="pci" style="background:linear-gradient(135deg,#1a0e00,#522e00)"><span style="font-size:44px">🤲</span><div class="pci-overlay"></div></div>
+        <div class="pcb"><div class="pcat" style="color:#fbbf24">SEM 2 · Course 208-B</div><h3 style="color:#fef3c7">Community Service — Outreach Activities</h3><p>Community service outreach documentation — activities, evidence, reflection and learning outcomes from social engagement during B.Ed. Semester 2.</p></div><div class="pc-arrow">↗</div>
+      </div>
+      <div style="grid-column:1/-1">
+        <!-- ===== SEM 2 GALLERY HEADER ===== -->
+        <div style="background:linear-gradient(135deg,rgba(168,85,247,.2),rgba(217,70,239,.12));border:2px solid rgba(217,70,239,.5);border-radius:20px;padding:22px 30px;margin-bottom:2.2rem">
+          <div style="font-family:var(--f-mono);font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#e879f9;margin-bottom:5px">📙 SEM 2 Gallery</div>
+          <div style="font-size:17px;color:#fae8ff;font-weight:600;line-height:1.5">203 Poster · 204 Practice Lessons · 205 Internship · 206A Pustak Din · 208A Women's Health · 208B Outreach</div>
+        </div>
+
+        <!-- 203 IKS Poster Presentation — 4 unique photos -->
+        <div style="background:linear-gradient(135deg,#200a00,#4a1800);border:2px solid #fb923c;border-radius:18px;padding:28px;margin-bottom:1.6rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fdba74;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(251,146,60,.3)">🖼️ 203 · Indian Knowledge System — Poster &amp; Presentation</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div class="collage-grid">
+              <div class="polaroid r3 wide">
+                <div class="p-img" style="aspect-ratio:16/9"><img src="https://drive.google.com/thumbnail?id=1h1xMnxuQcL0bobWd5-zEWwTd7neB3nFU&sz=w800" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">203-IKS-Poster.jpg</div>
+              </div>
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1efZx2n76ykqK2tyglGdACR0elU5zjhi7&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">203-IKS-Poster Presentation 1</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=12sIgVnUtOTSPFEtyQXuP_KK9GvrRGB2k&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">203-IKS-Poster Presentation 2</div>
+              </div>
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1coxPFMF78013YzPq9Y6vjABwtE1fao8L&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">203-IKS-Poster Presentation 3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 204 Practice Teaching — 8 unique photos (deduplicated) -->
+        <div style="background:linear-gradient(135deg,#020e28,#063060);border:2px solid #38bdf8;border-radius:18px;padding:28px;margin-bottom:1.6rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#7dd3fc;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(56,189,248,.3)">🎓 204 · Practice Teaching Lesson Photos</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div class="collage-grid">
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1J8Ky1GSeEErW6v4yug-7sBtRi3RBvX6l&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0048 (Statistics, Class 9 Maths)</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1dQYjNxyQcZPsMa95XKwgbAjcoKJ0PJYt&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0052</div>
+              </div>
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1DXihYy8aYmWm9hLLDL2DWwQHOw8xTHYF&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0049</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1zykbEdsS9zcaDCCQ3-FQQlQ8AAm-BlGe&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0050</div>
+              </div>
+              <div class="polaroid r5">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1xhOqsbvjtII0f-LBA6QlfKj0hZIfxPU2&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0051</div>
+              </div>
+              <div class="polaroid r6">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1EH2JdtPm2HHaC3aU8Qd87Hb6tJ2u72LU&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0045</div>
+              </div>
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=197wUXmjzIEza_uYUpWiGVDbboazwQviG&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0046</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1AfT0t0ifsFOZHXxrFJ-bRd0f8-qfP7Gg&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0047</div>
+              </div>
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=19Huvjz35mSM_aH3SrR75xZwFkzA6eqrr&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0009</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=139pKrEdqbOLN6NitaeF3wRwyabWvXVyG&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0010</div>
+              </div>
+              <div class="polaroid r5">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1EecBDGnAV-IClWdVCvYDsyAFRaf4hyoQ&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0011</div>
+              </div>
+              <div class="polaroid r6">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1Qe49ZZadBmtfOqQgc6bTAj1I5hd0-QC2&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0012</div>
+              </div>
+              <div class="polaroid r1 wide">
+                <div class="p-img" style="aspect-ratio:16/9"><img src="https://drive.google.com/thumbnail?id=19X1VNcOyMTwKIH1yYePwLkAlvxds8Nux&sz=w800" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0044</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1fGdIy2SV_5sUTlETz0lcFMaALJ3B7S5G&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260225-WA0053</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 205 Cover Page -->
+        <div style="background:linear-gradient(135deg,#181000,#3e2800);border:2px solid #fde047;border-radius:18px;padding:28px;margin-bottom:1.6rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fef08a;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(253,224,71,.3)">🏫 205 · Internship Cover Page</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem">
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1qOtsZ1X41YIXV2SarARGXca9FfTyyz-S&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 Cover Page</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 205 Send Off — unique photos from actual Drive list -->
+        <div style="background:linear-gradient(135deg,#100a1a,#2c0a3a);border:2px solid #f472b6;border-radius:18px;padding:28px;margin-bottom:1.6rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#f9a8d4;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(244,114,182,.3)">🎓 205 · Send Off Ceremony</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div class="collage-grid">
+              <div class="polaroid r1 wide">
+                <div class="p-img" style="aspect-ratio:16/9"><img src="https://drive.google.com/thumbnail?id=1UH-OCNHsSMz1JqRCw9ewtxiFqZwA2WHc&sz=w800" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 1</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1ynJtp37FtvB-hRzicY2QQFlcrHuBMot4&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 2</div>
+              </div>
+              <div class="polaroid r5">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1YFtQEpfvqjpiNx8hIL_LcrRLXW_la9_p&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 3</div>
+              </div>
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1ozQgi6cy7CK5ertNFSiL2uQWjx6kboqn&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 4</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=13f0DeWLZHNZOswPEDoXceVytmtdIX27H&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 5</div>
+              </div>
+              <div class="polaroid r6">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1P6d_D262vlT2EEQAG71cnVyD-_0d3qCX&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 6</div>
+              </div>
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1jpAHjowVBzg2TPsu8lw1rNOtk1p7l4Xj&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 7</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1uaZSd4m7IkIS0_Fi-_dZaZUmLujnWLWM&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 8</div>
+              </div>
+              <div class="polaroid r5">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=12xWGWdlNTrBHxm6qLDNvbCyzRA0xjt1Q&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 9</div>
+              </div>
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1eWSDVRFetbyuRj-WFGKcML0EJwAhHLgi&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 10</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=13sjXD8T2fMyHEp-vlMojDMdytZnza2mf&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 11</div>
+              </div>
+              <div class="polaroid r6">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1Pyz3y8DtUv6H5gansZc1R_SY4b1EZONc&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 12</div>
+              </div>
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=15D3ezBPxEHw3J9JREJOkIifctOFf-7Q0&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">205 - School Internship- Extra curricular - Send Off 13</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1Xmo_Kh2T7wsQHcwm31rHrL4IEtJCgwPU&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260304-WA0038</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 208A Women's Health — 2 photos from Drive -->
+        <div style="background:linear-gradient(135deg,#001a10,#003520);border:2px solid #34d399;border-radius:18px;padding:28px;margin-bottom:1.6rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#6ee7b7;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(52,211,153,.3)">👩‍⚕️ 208A · Community Engagement — Women's Health Awareness</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div class="collage-grid">
+              <div class="polaroid r2 wide">
+                <div class="p-img" style="aspect-ratio:16/9"><img src="https://drive.google.com/thumbnail?id=1NEsyTyNIZeB1U2eLcv1HCQhIawSc_xG7&sz=w800" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 A Women's Health Awareness</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1DAyRxRZVTnkiq5lAlAM7lC2krdmcooWN&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 A- Community Engagement- Group Photo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 208B Outreach Activities — all unique photos from Drive -->
+        <div style="background:linear-gradient(135deg,#1a0e00,#3a2000);border:2px solid #fbbf24;border-radius:18px;padding:28px;margin-bottom:1rem">
+          <div style="font-family:var(--f-mono);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fcd34d;margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid rgba(251,191,36,.3)">🤲 208B · Community Service — Outreach Activities</div>
+          <div class="collage-board" style="margin-top:0;padding:2rem 1.5rem 1.5rem">
+            <div class="collage-grid">
+              <div class="polaroid r1 wide">
+                <div class="p-img" style="aspect-ratio:16/9"><img src="https://drive.google.com/thumbnail?id=1Q2Cdyvlnz5iq7bLtxuoS30ltUGhuqlHF&sz=w800" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Z.P.School, Chandashi, Nashik</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1DVYUki7aEZEAeMx1atdBH08LCXH_fBXP&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Shaikshanik Manch - Intro 1</div>
+              </div>
+              <div class="polaroid r5">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=16pbFA9aqJbcc_MT2rmx_eDwQC1MNNuAQ&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Shaikshanik Manch - Intro 2</div>
+              </div>
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1yegGIRyGJILNx4_LqR6RuCeTu6qk7EfO&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Shaikshanik Manch - Intro 3</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1Z7FiXq1R64Nt3_Q9v_3xIcVQMYsErWGq&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Shaikshanik Manch - Intro 4</div>
+              </div>
+              <div class="polaroid r6">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1_-yr5cy_8JGaEt590CYpKNd84NVFBWnF&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Shaikshanik Manch 1</div>
+              </div>
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1MZNauWsZgxpRnlMxoTeFOtVFIrJh1-ox&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Shaikshanik Manch - 2</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1eLj6mQUeKlhCeiw-oHkx-57x-X9iYZIu&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Shaikshanik Manch - 4</div>
+              </div>
+              <div class="polaroid r5">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1wv4c7TtDFOPJbTc7Mh_MSEndaiW8gbj6&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Educational Material Distribution 1</div>
+              </div>
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1l1h2lsctkpWnU4uwteIuif5ZyghEIb7W&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Tree Plantation 1</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1eyZIR9NwWK9jblvwypVc2ycpaI5_6Ap_&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Tree Plantation 2</div>
+              </div>
+              <div class="polaroid r6">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=12VwZGsUe983aiH-eN9lRZMc6F4l8qF1a&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Tree Plantation 3</div>
+              </div>
+              <div class="polaroid r1">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1X0BJ0xOOfiRwbri0W0PiN3wD04WS2Zgd&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Tree Plantation 6</div>
+              </div>
+              <div class="polaroid r3">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1MiDKo40FDLYJecUhTErQodSocQWTXRDa&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B-Outreach Activities- Swacchata Abhiyan</div>
+              </div>
+              <div class="polaroid r5 wide">
+                <div class="p-img" style="aspect-ratio:16/9"><img src="https://drive.google.com/thumbnail?id=10ANroG9j2PdD6j6Vz84_1ulwyGUzKGzY&sz=w800" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B - Outreach Activities - Media Coverage 1</div>
+              </div>
+              <div class="polaroid r2">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1qF4IbBHI1PBNqaYVzu-i23FRY0AeIqyX&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">208 B - Outreach Activities- Media Activities 2</div>
+              </div>
+              <div class="polaroid r4">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1clAUufR6YLS0yAi9YucgCNUN9DBdI5q8&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260424-WA0189</div>
+              </div>
+              <div class="polaroid r6">
+                <div class="p-img" style="aspect-ratio:4/3"><img src="https://drive.google.com/thumbnail?id=1CH-PzmjgA1tzomhbkz5KtUeHItwdFygo&sz=w600" loading="lazy" onerror="this.parentElement.innerHTML='<div class=p-img-ph>📸</div>'"></div>
+                <div class="p-cap" style="font-size:14px;font-weight:600">IMG-20260424-WA0035</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEM 3 PANEL (DIRECT GOOGLE DRIVE PDF INTEGRATION) -->
+    <div class="span on" id="sp-sem3">
+
+      <!-- Course 301 : Rose / Crimson -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(244,63,94,.14),rgba(251,113,133,.07));border-color:rgba(251,113,133,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/1gixT_Q_qPQc0uQzr4QXXNGh9XUJZ4_7s/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#24060e,#6b0e24)"><span style="font-size:44px">💻</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#fb7185">SEM 3 · Course 301</div>
+          <h3 style="color:#ffe4e6">Advanced, Innovative &amp; Digital Pedagogy</h3>
+          <p>Differentiated teaching plan tailored for diverse learners (slow, average, advanced). Project-Based Learning (PBL) instructional design. Evaluated on LMS, Google Classroom, MOOCs, and AR/VR in education.</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/1gixT_Q_qPQc0uQzr4QXXNGh9XUJZ4_7s/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(244,63,94,.2);border:1px solid rgba(244,63,94,.5);color:#fecdd3" onclick="event.stopPropagation()">📄 Open Main Document (39 pgs) ↗</a>
+            <a href="https://drive.google.com/file/d/1GMWs46YZBL4rAwHY-l9yKsfDXFpyHiz2/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(251,113,133,.3);color:#ffe4e6" onclick="event.stopPropagation()">🎯 Open MCQ Assessment ↗</a>
+            <a href="https://drive.google.com/file/d/1QKOKS0rf7J7cLyv3v5S9nptvji13b0Bm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(251,113,133,.3);color:#ffe4e6" onclick="event.stopPropagation()">✍️ Open Preliminary Exam ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+      <!-- Course 302 : Emerald Green -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(16,185,129,.14),rgba(52,211,153,.07));border-color:rgba(52,211,153,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/16_NOUnyoSb_BrsdPpbuCoeWMs8rgSJ0L/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#041a10,#0c5230)"><span style="font-size:44px">🏛️</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#34d399">SEM 3 · Course 302</div>
+          <h3 style="color:#d1fae5">Quality &amp; Management of School Education</h3>
+          <p>On-site school visit &amp; quality observation audit schedule. Comprehensive evaluation of classroom learning environment, infrastructure, student support services, institutional planning, and TQM.</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/16_NOUnyoSb_BrsdPpbuCoeWMs8rgSJ0L/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(16,185,129,.2);border:1px solid rgba(52,211,153,.5);color:#a7f3d0" onclick="event.stopPropagation()">🏛️ Open Quality Audit (44 pgs) ↗</a>
+            <a href="https://drive.google.com/file/d/1hO4Mpkaoxbd5rSp3tc-rRTX51SoyO0-B/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(52,211,153,.3);color:#d1fae5" onclick="event.stopPropagation()">🎯 Open MCQ Assessment ↗</a>
+            <a href="https://drive.google.com/file/d/1zCFcRSFCkdph3JNad0zysur7zwLkxfJU/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(52,211,153,.3);color:#d1fae5" onclick="event.stopPropagation()">✍️ Open Preliminary Exam ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+      <!-- Course 303 : Amber / Gold -->
+      <div class="pc rev d2" style="background:linear-gradient(135deg,rgba(245,158,11,.14),rgba(251,191,36,.07));border-color:rgba(251,191,36,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/1gFD92_DJ32b4OnfYTegb7h3Pv79mpqbT/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#1e0e00,#5e3000)"><span style="font-size:44px">📈</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#fbbf24">SEM 3 · Course 303</div>
+          <h3 style="color:#fef3c7">Understanding Disciplines — Economics</h3>
+          <p>Critical textbook analysis evaluating curriculum standards, content depth, and pedagogical presentation. Written tutorial on Economics discipline (BED 303-10) addressing core concepts and teaching methods.</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/1gFD92_DJ32b4OnfYTegb7h3Pv79mpqbT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(245,158,11,.2);border:1px solid rgba(251,191,36,.5);color:#fde68a" onclick="event.stopPropagation()">📖 Open Textbook Analysis (47 pgs) ↗</a>
+            <a href="https://drive.google.com/file/d/1Ah7hQFY4V7vaVHTlff16gbEZKLQu4Clo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(251,191,36,.3);color:#fef3c7" onclick="event.stopPropagation()">📝 Open Economics Tutorial ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+      <!-- Courses 304–305 : Sky Blue -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(14,165,233,.14),rgba(56,189,248,.07));border-color:rgba(56,189,248,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/1L2LHtAdyOEsn-JPKhZA0frL7BkQ5ghk6/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#021428,#065888)"><span style="font-size:44px">📋</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#38bdf8">SEM 3 · Courses 304–305</div>
+          <h3 style="color:#e0f2fe">Teaching Competency IV: Block Teaching</h3>
+          <p>133-page extensive practicum portfolio of supervised block teaching lessons at secondary school level in Science and Mathematics (Std 6th–8th). Complete lesson notes, values, micro-skills, and evaluation.</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/1L2LHtAdyOEsn-JPKhZA0frL7BkQ5ghk6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(14,165,233,.2);border:1px solid rgba(56,189,248,.5);color:#bae6fd" onclick="event.stopPropagation()">📋 Open Full Lesson Plans (133 pgs) ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+      <!-- Course 305 : Purple / Violet -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(168,85,247,.14),rgba(192,132,252,.07));border-color:rgba(192,132,252,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/1eUEKalE85zyGx5CxKQ1Tg9qrDe4jhc0k/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#130422,#36126a)"><span style="font-size:44px">🎒</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#c084fc">SEM 3 · Course 305</div>
+          <h3 style="color:#f3e8ff">School Internship Programme II (3 Portfolios)</h3>
+          <p>Complete multi-part internship portfolio: Situational &amp; value-based lessons, student development activities, experienced teacher observations, peer reviews, co-curricular planning, and test blue prints.</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/1eUEKalE85zyGx5CxKQ1Tg9qrDe4jhc0k/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(168,85,247,.2);border:1px solid rgba(192,132,252,.5);color:#e9d5ff" onclick="event.stopPropagation()">🎒 Open Internship Part 1 (109 pgs) ↗</a>
+            <a href="https://drive.google.com/file/d/1VMqUgiRhqJeHS9BE-U13KcDwu9KmhjtN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(192,132,252,.3);color:#f3e8ff" onclick="event.stopPropagation()">🎪 Co-curricular Report (52 pgs) ↗</a>
+            <a href="https://drive.google.com/file/d/1E_EBzQDJzdLUW3HdwKiUIJAo8ZgB_zn2/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(192,132,252,.3);color:#f3e8ff" onclick="event.stopPropagation()">📊 Assessment &amp; Blue Print (63 pgs) ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+      <!-- Course 306 : Indigo / Royal Blue -->
+      <div class="pc rev d2" style="background:linear-gradient(135deg,rgba(99,102,241,.14),rgba(129,140,248,.07));border-color:rgba(129,140,248,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/1_nBIQ_cOiiBpWhkDYFWl7XiF5w6esgxp/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#080a28,#1a1e6a)"><span style="font-size:44px">🔬</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#818cf8">SEM 3 · Course 306</div>
+          <h3 style="color:#e0e7ff">Educational Research Project (Action Research)</h3>
+          <p>46-page school-based Action Research project. Problem formulation, hypothesis testing, research tool construction, empirical classroom data collection, statistical analysis, and pedagogical recommendations.</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/1_nBIQ_cOiiBpWhkDYFWl7XiF5w6esgxp/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(99,102,241,.2);border:1px solid rgba(129,140,248,.5);color:#c7d2fe" onclick="event.stopPropagation()">🔬 Open Action Research Project (46 pgs) ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+      <!-- Course 307 : Teal & Fuchsia -->
+      <div class="pc rev" style="background:linear-gradient(135deg,rgba(20,184,166,.14),rgba(45,212,191,.07));border-color:rgba(45,212,191,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/1GLGtnl0x_oam1J-Lwh9-kIgKZFLx9d3Z/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#041818,#0c4a44)"><span style="font-size:44px">🌱</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#2dd4bf">SEM 3 · Course 307</div>
+          <h3 style="color:#ccfbf1">Positive Behaviour Support &amp; Mentoring</h3>
+          <p>Course 307-A observation of behavioral practices &amp; Positive Behaviour Support (PBS) Plan (26 pgs). Course 307-B Mentoring in Education journal documenting structured session logs, guidance, and outcomes (48 pgs).</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/1GLGtnl0x_oam1J-Lwh9-kIgKZFLx9d3Z/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(20,184,166,.2);border:1px solid rgba(45,212,191,.5);color:#99f6e4" onclick="event.stopPropagation()">🌱 307-A PBS Plan (26 pgs) ↗</a>
+            <a href="https://drive.google.com/file/d/1qKVgt-FFU1vO9JvNDsTnukqnX6r_WdxJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(217,70,239,.18);border:1px solid rgba(240,114,255,.4);color:#fae8ff" onclick="event.stopPropagation()">💬 307-B Mentoring Journal (48 pgs) ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+      <!-- Course 308 : Warm Orange -->
+      <div class="pc rev d1" style="background:linear-gradient(135deg,rgba(249,115,22,.14),rgba(251,146,60,.07));border-color:rgba(251,146,60,.38)" onclick="if(!event.target.closest('.card-doc-btn')){window.open('https://drive.google.com/file/d/1L0ErHpR1_0nUcW0g3lzRtLFcTDDhopPK/view?usp=sharing','_blank');}">
+        <div class="pci" style="background:linear-gradient(135deg,#200800,#602000)"><span style="font-size:44px">📝</span><div class="pci-overlay"></div></div>
+        <div class="pcb">
+          <div class="pcat" style="color:#fb923c">SEM 3 · Course 308-A</div>
+          <h3 style="color:#ffedd5">Teacher Progression — Recruitment &amp; Entrance Exams</h3>
+          <p>Analytical comparative study of Maharashtra Pavitra Portal, KVS, NVS, and State Government teacher recruitment processes. Comparative analysis of Teacher Eligibility Tests (TET, CTET, TAIT pattern, syllabus, and preparation).</p>
+          <div class="card-doc-btns">
+            <a href="https://drive.google.com/file/d/1L0ErHpR1_0nUcW0g3lzRtLFcTDDhopPK/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-doc-btn" style="background:rgba(249,115,22,.2);border:1px solid rgba(251,146,60,.5);color:#fed7aa" onclick="event.stopPropagation()">📝 Open Recruitment &amp; TET Study (22 pgs) ↗</a>
+          </div>
+        </div>
+        <div class="pc-arrow">↗</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- AWARDS HORIZONTAL SCROLL -->
+<section id="awards" class="pad">
+  <div class="w"><div class="chip rev">Awards &amp; Certificates · पुरस्कार</div><h2 class="sh rev">Recognitions &amp; <span class="g">Achievements</span></h2></div>
+  <div class="hs-outer" style="margin-top:2.5rem">
+    <div class="hs-track" id="hsT">
+      <div class="ac feat"><div class="aic">🏆</div><h3>Best Teacher Award</h3><p>Awarded by CSI (Computer Society of India), Nashik Chapter for excellence and innovation in IT education.</p><span class="abadge">CSI · Nashik Chapter</span></div>
+      <div class="ac feat"><div class="aic">🌟</div><h3>Gunwant Shikshak Award</h3><p>Prestigious Quality Teacher Award from Kalika Pratishtan, Nashik — recognising outstanding teaching dedication.</p><span class="abadge">Kalika Pratishtan · Nashik</span></div>
+
+      <div class="ac"><div class="aic">🤖</div><h3>Arduino / IoT Trainer</h3><p>Conducted Arduino-based IoT project workshops for school and Jr. College students in Nashik.</p><span class="abadge">Conducted</span></div>
+      <div class="ac"><div class="aic">🛡️</div><h3>Cyber Safety Creator</h3><p>Created Marathi-language Cyber Safety awareness infographics and educational videos.</p><span class="abadge">2026</span></div>
+    </div>
+  </div>
+  <div class="hs-nav"><button class="hsbtn" id="hsPrev" data-hover>←</button><button class="hsbtn" id="hsNext" data-hover>→</button></div>
+
+    <!-- Educational Qualifications — separate from Awards -->
+    <div class="w" style="margin-top:3rem">
+      <div style="font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a2);margin-bottom:1.5rem" class="rev">
+        🎓 Educational Qualifications · शैक्षणिक पात्रता
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+        <div style="background:rgba(129,140,248,.07);border:1px solid rgba(129,140,248,.2);border-radius:18px;padding:22px;backdrop-filter:blur(8px)" class="rev">
+          <div style="font-size:28px;margin-bottom:.7rem">🎓</div>
+          <div style="font-family:var(--f-mono);font-size:10px;color:var(--a2);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Currently Pursuing</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--txt);margin-bottom:6px">B.Ed. — Bachelor of Education</h3>
+          <p style="font-size:12.5px;color:var(--mute);line-height:1.6">MSVM's New College of Education, Bhor Township, Satpur Ambad Link Road, Nashik-10.</p>
+          <div style="display:inline-block;margin-top:.8rem;padding:3px 10px;background:rgba(129,140,248,.15);color:var(--a2);border-radius:100px;font-family:var(--f-mono);font-size:10px;font-weight:600">Roll No. 78 · In Progress</div>
+        </div>
+        <div style="background:rgba(var(--a2RGB),.07);border:1px solid rgba(var(--a2RGB),.2);border-radius:18px;padding:22px;backdrop-filter:blur(8px)" class="rev">
+          <div style="font-size:28px;margin-bottom:.7rem">🖥️</div>
+          <div style="font-family:var(--f-mono);font-size:10px;color:var(--a2);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Completed</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--txt);margin-bottom:6px">M.C.A. — Master of Computer Applications</h3>
+          <p style="font-size:13px;color:var(--mute);line-height:1.6">Postgraduate qualification in Computer Science and Applications.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem">
+            <div style="display:inline-block;padding:3px 10px;background:rgba(52,211,153,.15);color:var(--a3);border-radius:100px;font-family:var(--f-mono);font-size:10px;font-weight:600">Completed ✓</div>
+            <a href="https://drive.google.com/file/d/1_pMs9lkt3Wm8tMu_eDPbZ2yseOPT05Ow/view" target="_blank" style="display:inline-block;padding:3px 12px;background:rgba(99,102,241,.2);color:#a5b4fc;border-radius:100px;font-family:var(--f-mono);font-size:10px;font-weight:600;text-decoration:none;border:1px solid rgba(99,102,241,.3)">📄 View Marksheet</a>
+          </div>
+        </div>
+        <div style="background:rgba(var(--aRGB),.07);border:1px solid rgba(var(--aRGB),.2);border-radius:18px;padding:22px;backdrop-filter:blur(8px)" class="rev">
+          <div style="font-size:28px;margin-bottom:.7rem">📜</div>
+          <div style="font-family:var(--f-mono);font-size:10px;color:var(--a);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Completed</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--txt);margin-bottom:6px">B.C.S. — Bachelor of Computer Science</h3>
+          <p style="font-size:13px;color:var(--mute);line-height:1.6">University of Pune · Oct/Nov 1997 · Second Class.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem">
+            <div style="display:inline-block;padding:3px 10px;background:rgba(52,211,153,.15);color:var(--a3);border-radius:100px;font-family:var(--f-mono);font-size:10px;font-weight:600">Completed ✓</div>
+            <a href="https://drive.google.com/file/d/1w4DUV-lC4PkL8BIs9nQOe1KZFEX6BK99/view" target="_blank" style="display:inline-block;padding:3px 12px;background:rgba(251,191,36,.15);color:#fbbf24;border-radius:100px;font-family:var(--f-mono);font-size:10px;font-weight:600;text-decoration:none;border:1px solid rgba(251,191,36,.3)">📄 View Marksheet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- TESTIMONIALS DUAL MARQUEE -->
+<section id="testi" class="pad">
+  <div class="w" style="text-align:center"><div class="chip rev" style="justify-content:center">Testimonials · अभिप्राय</div><h2 class="sh rev">What People <span class="g">Say</span></h2></div>
+  <div class="mq-wrap">
+    <div class="mqr"><div class="mqi" id="mq1">
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"Suvarna Madam makes complex programming concepts genuinely fun. Her Arduino workshops were the most exciting sessions of the year."</p><div class="tcd"></div><div class="tca"><div class="tcav">AP</div><div><div class="tcn">A. Patil</div><div class="tcr">B.Ed. Faculty Mentor</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"22 years of consistent excellence. She brings real industry knowledge into the classroom and keeps every student future-ready."</p><div class="tcd"></div><div class="tca"><div class="tcav">RS</div><div><div class="tcn">R. Sharma</div><div class="tcr">School Principal</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"Suvarna tai मराठीत सायबर सुरक्षा समजावून सांगण्याचे जे काम केले ते खूपच महत्त्वाचे आहे. त्यांचे व्हिडिओ अप्रतिम आहेत."</p><div class="tcd"></div><div class="tca"><div class="tcav">NM</div><div><div class="tcn">N. More</div><div class="tcr">Community Member</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"The Python course she designed helped our students build real projects in weeks. Her teaching style is patient, clear and deeply effective."</p><div class="tcd"></div><div class="tca"><div class="tcav">SK</div><div><div class="tcn">S. Kulkarni</div><div class="tcr">Senior Colleague</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"The ICT training she conducted made digital transformation possible for our entire school. Every teacher left confident and inspired."</p><div class="tcd"></div><div class="tca"><div class="tcav">PJ</div><div><div class="tcn">P. Joshi</div><div class="tcr">Education Coordinator</div></div></div></div>
+    </div></div>
+    <div class="mqr rv"><div class="mqi" id="mq2">
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"Her research papers on e-commerce are thorough and insightful. A true scholar who combines academic depth with practical classroom wisdom."</p><div class="tcd"></div><div class="tca"><div class="tcav">VK</div><div><div class="tcn">V. Kulkarni</div><div class="tcr">Academic Reviewer</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"Winning the CSI Best Teacher Award is well deserved. Suvarna Madam leads by example — always learning, always teaching."</p><div class="tcd"></div><div class="tca"><div class="tcav">DM</div><div><div class="tcn">D. Marathe</div><div class="tcr">CSI Chapter Member</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"She helped our school achieve 100% digital compliance with UDISE+ and explained everything so clearly. Outstanding educator."</p><div class="tcd"></div><div class="tca"><div class="tcav">MT</div><div><div class="tcn">M. Tambe</div><div class="tcr">Administrative Officer</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"I still remember the IoT project I built in her workshop — a motion sensor lamp. It sparked my passion for engineering."</p><div class="tcd"></div><div class="tca"><div class="tcav">RG</div><div><div class="tcn">R. Gaikwad</div><div class="tcr">Former Student</div></div></div></div>
+      <div class="tc"><div class="tcs">★★★★★</div><p class="tcq">"सुवर्णा ताईंनी आम्हाला शिकवले की तंत्रज्ञान हे केवळ साधन नाही, ते एक भाषा आहे. त्यांच्यामुळे आम्ही IT क्षेत्रात आलो."</p><div class="tcd"></div><div class="tca"><div class="tcav">PM</div><div><div class="tcn">P. More</div><div class="tcr">Former Student</div></div></div></div>
+    </div></div>
+  </div>
+</section>
+<!-- GALLERY MASONRY (removed - content moved to B.Ed Course Gallery tab) -->
+
+<!-- REFLECTION SECTION — Criterion 7 & 8 -->
+<section id="reflection" class="pad">
+  <div class="w">
+    <div class="chip rev">Reflections · चिंतन विभाग</div>
+    <h2 class="sh rev">Analytical <span class="g">Reflections &amp; Outcomes</span></h2>
+    <p style="color:var(--mute);font-size:14.5px;margin-top:.5rem;max-width:700px" class="rev">Criterion 8 — Reflections linked with learning outcomes, mentorship records, and internship documentation.</p>
+
+    <!-- Internship Records with Mentor Feedback — Criterion 7 -->
+    <div style="margin-top:3rem">
+      <div style="font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:1.5rem" class="rev">📋 Internship Records · इंटर्नशिप नोंदी — Criterion 7</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem">
+        <div class="bc gold rev" style="border-radius:18px;padding:24px">
+          <span style="font-size:28px;display:block;margin-bottom:.8rem">📝</span>
+          <h3 style="font-family:var(--f-display);font-size:17px;font-weight:700;margin-bottom:7px;color:var(--txt)">Lesson Plans — धडा आराखडे</h3>
+          <p style="font-size:13px;color:var(--mute);line-height:1.65">Detailed daily lesson plans prepared for IT (11th &amp; 12th) during school internship at Arambha Mahavidyalaya. Includes objectives, methodology, TLM, and evaluation strategies aligned with CCE framework.</p>
+          <a href="https://drive.google.com/drive/folders/1dSxxgM_Lz34r5vciZx0xuBB8NwXC4h57" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:1rem;font-family:var(--f-mono);font-size:11px;color:var(--a);font-weight:600;letter-spacing:.06em">View Lesson Plans ↗</a>
+        </div>
+        <div class="bc indigo rev" style="border-radius:18px;padding:24px">
+          <span style="font-size:28px;display:block;margin-bottom:.8rem">💬</span>
+          <h3 style="font-family:var(--f-display);font-size:17px;font-weight:700;margin-bottom:7px;color:var(--txt)">Mentor Feedback · मार्गदर्शक अभिप्राय</h3>
+          <p style="font-size:13px;color:var(--mute);line-height:1.65">"Suvarna's classroom management and ICT integration skills are commendable. Her lesson plans are thorough, student-centered, and practically oriented. Consistently demonstrates professional growth and reflective teaching practice." — Faculty Mentor, Arambha Mahavidyalaya B.Ed.</p>
+        </div>
+        <div class="bc emerald rev" style="border-radius:18px;padding:24px">
+          <span style="font-size:28px;display:block;margin-bottom:.8rem">📊</span>
+          <h3 style="font-family:var(--f-display);font-size:17px;font-weight:700;margin-bottom:7px;color:var(--txt)">CCE Documentation · CCE नोंदी</h3>
+          <p style="font-size:13px;color:var(--mute);line-height:1.65">Continuous and Comprehensive Evaluation records maintained for students during internship — including formative assessments, assignments, oral tests, project work evaluations, and progress tracking as per Maharashtra B.Ed. norms.</p>
+          <a href="https://drive.google.com/drive/folders/1qsM-uqF-F4CjH5LzRplZZElYZHuyD73m" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:1rem;font-family:var(--f-mono);font-size:11px;color:var(--a3);font-weight:600;letter-spacing:.06em">View Internship Folder ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Analytical Reflections — Criterion 8 -->
+    <div style="margin-top:3rem">
+      <div style="font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:1.5rem" class="rev">🔍 Analytical Reflections · विश्लेषणात्मक चिंतन — Criterion 8</div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:16px;padding:24px;backdrop-filter:blur(10px)" class="rev">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <div style="background:rgba(245,158,11,.15);border-radius:10px;padding:10px;font-size:22px;flex-shrink:0">💡</div>
+            <div>
+              <div style="font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:6px">Reflection 1 · Teaching Practice Outcome</div>
+              <h4 style="font-family:var(--f-display);font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px">Student-Centered Learning in IT Classrooms</h4>
+              <p style="font-size:13.5px;color:var(--mute);line-height:1.82">During internship, I observed that students engaged significantly more when lessons incorporated hands-on activities (Arduino assembly, Python coding exercises) rather than theory alone. <strong style="color:var(--txt)">Outcome:</strong> Activity-based methodology improved student participation by an estimated 40% and reduced classroom management challenges. This reinforced my belief in experiential learning as the most effective pedagogy for IT education.</p>
+              <div style="margin-top:.8rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <span style="background:rgba(245,158,11,.12);color:var(--a);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">Pedagogy</span>
+                <span style="background:rgba(245,158,11,.12);color:var(--a);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">Outcome: Improved Engagement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:16px;padding:24px;backdrop-filter:blur(10px)" class="rev">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <div style="background:rgba(129,140,248,.15);border-radius:10px;padding:10px;font-size:22px;flex-shrink:0">🔄</div>
+            <div>
+              <div style="font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a2);margin-bottom:6px">Reflection 2 · ICT Integration Outcome</div>
+              <h4 style="font-family:var(--f-display);font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px">Digital Tools Transforming Traditional Teaching</h4>
+              <p style="font-size:13.5px;color:var(--mute);line-height:1.82">Integrating Google Workspace, digital lesson plans, and online assessments during B.Ed. practicum revealed significant gaps in teacher-readiness across Maharashtra schools. After conducting ICT training workshops, teachers reported greater confidence in using technology. <strong style="color:var(--txt)">Outcome:</strong> Demonstrated the multiplier effect of teacher training — one trained teacher impacts hundreds of students annually.</p>
+              <div style="margin-top:.8rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <span style="background:rgba(129,140,248,.12);color:var(--a2);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">ICT Integration</span>
+                <span style="background:rgba(129,140,248,.12);color:var(--a2);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">Outcome: Teacher Empowerment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:16px;padding:24px;backdrop-filter:blur(10px)" class="rev">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <div style="background:rgba(52,211,153,.15);border-radius:10px;padding:10px;font-size:22px;flex-shrink:0">🌱</div>
+            <div>
+              <div style="font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a3);margin-bottom:6px">Reflection 3 · Community Outreach Outcome</div>
+              <h4 style="font-family:var(--f-display);font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px">Cyber Safety Awareness in Marathi — Community Impact</h4>
+              <p style="font-size:13.5px;color:var(--mute);line-height:1.82">Creating Cyber Safety content in Marathi addressed a critical gap — most digital safety resources exist only in English. After distributing infographics and videos in local communities, feedback indicated improved awareness of phishing scams and online fraud. <strong style="color:var(--txt)">Outcome:</strong> Reinforced the responsibility of an IT educator to extend learning beyond the classroom into the community. Language accessibility is a form of educational equity.</p>
+              <div style="margin-top:.8rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <span style="background:rgba(52,211,153,.12);color:var(--a3);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">Community Impact</span>
+                <span style="background:rgba(52,211,153,.12);color:var(--a3);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">Outcome: Digital Equity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:16px;padding:24px;backdrop-filter:blur(10px)" class="rev">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <div style="background:rgba(245,158,11,.15);border-radius:10px;padding:10px;font-size:22px;flex-shrink:0">📈</div>
+            <div>
+              <div style="font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:6px">Reflection 4 · Professional Growth</div>
+              <h4 style="font-family:var(--f-display);font-size:16px;font-weight:700;color:var(--txt);margin-bottom:8px">Pursuing B.Ed. After 22 Years — A Reflective Journey</h4>
+              <p style="font-size:13.5px;color:var(--mute);line-height:1.82">Returning to formal education after 22 years of classroom practice was humbling and transformative. B.Ed. theories gave academic language to what I had been doing intuitively. Understanding Bloom's Taxonomy, Piaget's stages, and NEP 2020 frameworks helped me articulate and refine my teaching practice. <strong style="color:var(--txt)">Outcome:</strong> Professional development is not a destination but a continuous journey — and modelling lifelong learning is itself a powerful lesson for students.</p>
+              <div style="margin-top:.8rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                <span style="background:rgba(245,158,11,.12);color:var(--a);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">Professional Growth</span>
+                <span style="background:rgba(245,158,11,.12);color:var(--a);border-radius:100px;padding:3px 10px;font-family:var(--f-mono);font-size:10px;font-weight:600">Outcome: Lifelong Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Research Activities Tools & Progress — Criterion 6 -->
+    <div style="margin-top:3rem">
+      <div style="font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:1.5rem" class="rev">🔬 Research Activities · संशोधन उपक्रम — Criterion 6</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem">
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:14px;padding:20px;backdrop-filter:blur(8px)" class="rev">
+          <div style="font-size:22px;margin-bottom:.6rem">🛠️</div>
+          <div style="font-family:var(--f-mono);font-size:10px;color:var(--a);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Research Tools</div>
+          <p style="font-size:13px;color:var(--mute);line-height:1.7">Survey methods, online questionnaires, literature review, descriptive research design, secondary data analysis from government portals and academic journals.</p>
+        </div>
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:14px;padding:20px;backdrop-filter:blur(8px)" class="rev">
+          <div style="font-size:22px;margin-bottom:.6rem">📋</div>
+          <div style="font-family:var(--f-mono);font-size:10px;color:var(--a);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Research Tasks</div>
+          <p style="font-size:13px;color:var(--mute);line-height:1.7">Topic selection → Literature review → Data collection → Analysis using charts and tables → Report writing → Submission and presentation to faculty.</p>
+        </div>
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:14px;padding:20px;backdrop-filter:blur(8px)" class="rev">
+          <div style="font-size:22px;margin-bottom:.6rem">📈</div>
+          <div style="font-family:var(--f-mono);font-size:10px;color:var(--a);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Progress &amp; Reports</div>
+          <p style="font-size:13px;color:var(--mute);line-height:1.7">Published: "Salmon in the Ocean of COVID" (Startup Innovations) · "Challenges &amp; Prospectives of E-Commerce in India" — submitted and approved by faculty.</p>
+        </div>
+        <div style="background:var(--glass);border:1px solid var(--bdr);border-radius:14px;padding:20px;backdrop-filter:blur(8px)" class="rev">
+          <div style="font-size:22px;margin-bottom:.6rem">🎯</div>
+          <div style="font-family:var(--f-mono);font-size:10px;color:var(--a);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px">Research Outcomes</div>
+          <p style="font-size:13px;color:var(--mute);line-height:1.7">Enhanced understanding of Indian startup ecosystem and e-commerce landscape · Strengthened academic writing and analytical skills · Contributed to educational discourse on technology and entrepreneurship.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="pad">
+  <div class="w" style="max-width:820px">
+    <div class="chip rev" style="display:flex;justify-content:center">FAQ · वारंवार विचारले जाणारे प्रश्न</div>
+    <h2 class="sh rev" style="text-align:center">Common <span class="g">Questions</span></h2>
+    <div class="flist" style="margin-top:3rem">
+      <div class="fi rev"><button class="fq">What subjects and grades do you teach?<div class="fic">+</div></button><div class="fa"><p class="fat">I teach Information Technology (IT) to 11th and 12th standard students in both Commerce and Science streams at Purushottam English School and Arambha Mahavidyalaya, Nashik Road — since August 2002.<em>मी 11वी आणि 12वी (Commerce &amp; Science) च्या विद्यार्थ्यांना IT शिकवते — ऑगस्ट 2002 पासून.</em></p></div></div>
+      <div class="fi rev"><button class="fq">Do you conduct workshops or special courses?<div class="fic">+</div></button><div class="fa"><p class="fat">Yes! Arduino-based IoT project workshops, Python programming courses for Jr. College students, and ICT training workshops for fellow teachers. Always open to new collaboration opportunities.<em>होय! Arduino IoT, Python आणि ICT प्रशिक्षण कार्यशाळा आयोजित केल्या आहेत.</em></p></div></div>
+      <div class="fi rev"><button class="fq">What awards have you received?<div class="fic">+</div></button><div class="fa"><p class="fat">Best Teacher Award from CSI (Computer Society of India), Nashik Chapter, and the Gunwant Shikshak Award from Kalika Pratishtan, Nashik — both recognising excellence in IT education.<em>CSI नाशिक शाखेकडून Best Teacher Award आणि कलिका प्रतिष्ठानकडून गुणवंत शिक्षक पुरस्कार.</em></p></div></div>
+      <div class="fi rev"><button class="fq">What are your educational qualifications?<div class="fic">+</div></button><div class="fa"><p class="fat">B.C.S. and M.C.A. from the University of Pune. Currently pursuing B.Ed. at MSVM's New College of Education, Nashik to further strengthen my pedagogical credentials.<em>B.C.S., M.C.A. (पुणे विद्यापीठ) आणि सध्या MSVM's New College of Education, Nashik येथे B.Ed. करत आहे.</em></p></div></div>
+      <div class="fi rev"><button class="fq">Do you create digital content in Marathi?<div class="fic">+</div></button><div class="fa"><p class="fat">Yes! Marathi Cyber Safety infographics and videos, research papers on Indian startups and e-commerce, and academic content for B.Ed. studies.<em>होय! मी मराठीत सायबर सुरक्षा इन्फोग्राफिक्स, व्हिडिओ आणि संशोधन पेपर तयार करते.</em></p></div></div>
+      <div class="fi rev"><button class="fq">How can I contact you?<div class="fic">+</div></button><div class="fa"><p class="fat">Email: suvarna158@gmail.com · Phone: +91 94227 50806 · Address: Janki Bunglow, Govind Nagar, New Nashik — 422009. Open to tutoring, workshops, ICT training, and content collaboration.<em>संपर्क: suvarna158@gmail.com · 9422750806 · नाशिक, महाराष्ट्र.</em></p></div></div>
+    </div>
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="pad">
+  <div class="w">
+    <div class="cgrid">
+      <div class="ci">
+        <div class="chip rev">Get in Touch · संपर्क करा</div>
+        <h2 class="sh rev" style="margin-bottom:1.3rem">Let's <span class="g">Connect</span></h2>
+        <p class="rev">Workshop, research collaboration, ICT training, or tutoring — I'd love to hear from you.</p>
+        <div class="clinks rev d1">
+          <a class="cl" href="mailto:suvarna158@gmail.com" data-hover><div class="clic">✉️</div><div><div class="clt">Email</div><div class="clv">suvarna158@gmail.com</div></div></a>
+          <a class="cl" href="tel:+919422750806" data-hover><div class="clic">📞</div><div><div class="clt">Phone</div><div class="clv">+91 94227 50806</div></div></a>
+          <a class="cl" href="#" data-hover><div class="clic">📍</div><div><div class="clt">Address</div><div class="clv">Janki Bunglow, Govind Nagar, New Nashik — 422009</div></div></a>
+          <a class="cl" href="#" data-hover><div class="clic">🏫</div><div><div class="clt">Institution</div><div class="clv">MSVM's New College Of Education, Nashik</div></div></a>
+        </div>
+      </div>
+      <div class="cform-card rev d1">
+        <h3>Send a Message · संदेश पाठवा</h3>
+        <div class="frow">
+          <div class="fg"><label>Your Name</label><input type="text" placeholder="Full Name" id="cN"></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" id="cE"></div>
+        </div>
+        <div class="fg"><label>Subject</label><input type="text" placeholder="Workshop / Collaboration / Tutoring" id="cS"></div>
+        <div class="fg"><label>Message · संदेश</label><textarea placeholder="Write your message here..." id="cM"></textarea></div>
+        <button class="btn-clay" style="width:100%;padding:16px;font-size:14.5px" onclick="sendMsg()" data-hover>Send Message &nbsp;✉️</button>
+        <p id="fok" style="display:none;text-align:center;margin-top:1rem;color:var(--a3);font-size:13.5px;font-family:var(--f-mono)">🙏 Message received! I'll get back to you soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div style="background:rgba(255,255,255,.02);border-top:1px solid var(--bdr);padding:1.2rem 5%;text-align:center">
+    <p style="font-family:var(--f-mono);font-size:10.5px;color:var(--mute);letter-spacing:.05em;line-height:1.8">
+      🔒 <strong style="color:var(--mute2)">Ethics &amp; Confidentiality · नैतिकता व गोपनीयता (Criterion 10):</strong>
+      This e-Portfolio is created solely for academic evaluation purposes under the B.Ed. programme at <strong style="color:var(--mute2)">Maharashtra Shikshan Vikas Mandal's New College of Education</strong>, Bhor Township, Satpur Ambad Link Road, Nashik-10.
+      All student data, evaluation records, and personal information have been handled with strict confidentiality in accordance with institutional norms.
+      Content is original and properly attributed. No student-identifying information has been shared without consent.
+      &nbsp;·&nbsp; <em>हे पोर्टफोलिओ केवळ शैक्षणिक मूल्यमापनासाठी तयार केले आहे. सर्व माहिती गोपनीय ठेवण्यात आली आहे.</em>
+    </p>
+  </div>
+  <div class="ft">
+    <div style="display:flex;align-items:center;gap:.9rem">
+      <img src="https://drive.google.com/thumbnail?id=1Riq9Mxe_AWDUIgQcbegLnWpnC7_pJDKN&sz=w120" alt="MSVM Logo" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(245,158,11,.3);flex-shrink:0">
+      <div>
+        <div class="flogo">S<em>.</em>Purkar</div>
+        <div style="font-family:var(--f-mono);font-size:9.5px;color:var(--mute);letter-spacing:.07em;margin-top:2px">MSVM's New College of Education</div>
+      </div>
+    </div>
+    <div class="fcopy">© 2025 Suvarna Dasharath Purkar · B.Ed. Scholar · Nashik, Maharashtra</div>
+    <div class="flinks"><a href="#hero">Home</a><a href="#about">About</a><a href="#reflection">Reflections</a><a href="#contact">Contact</a></div>
+  </div>
+</footer>
+<!-- MODAL -->
+<div id="modal"><div class="mpan">
+  <div class="mhd"><div><div id="mcat" style="font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:6px"></div><h3 id="mtit" style="font-family:var(--f-display);font-size:20px;font-weight:700;color:var(--txt)"></h3></div><button class="mcl" onclick="closeM()">✕</button></div>
+  <div class="mbdy" id="mbdy"></div>
+</div></div>
+<!-- LIBRARIES -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ── LENIS FALLBACK SHIM (if CDN fails) ─────────── */
+if (typeof Lenis === 'undefined') {
+  window.Lenis = class LenisShim {
+    constructor() {
+      this._h = {};
+      window.addEventListener('scroll', () => {
+        (this._h['scroll'] || []).forEach(cb => cb({ scroll: window.scrollY, velocity: 0 }));
+      });
+    }
+    on(ev, cb) {
+      if (!this._h[ev]) this._h[ev] = [];
+      this._h[ev].push(cb);
+      return this;
+    }
+    raf() {}
+    scrollTo(target, opts) {
+      let top = 0;
+      if (target && target !== document.body && target.getBoundingClientRect) {
+        top = target.getBoundingClientRect().top + window.scrollY - (opts && opts.offset || 0);
+      }
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }
+    destroy() {}
+  };
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── LOADER with live % counter ─────────────── */
+let pct = 0;
+const lPct = document.getElementById('lpct');
+const ldrInt = setInterval(() => {
+  pct = Math.min(pct + Math.random() * 14, 99);
+  if (lPct) lPct.textContent = Math.floor(pct) + '%';
+}, 100);
+
+function finishLoader() {
+  clearInterval(ldrInt);
+  if (lPct) lPct.textContent = '100%';
+  setTimeout(() => {
+    document.getElementById('ldr').classList.add('out');
+    gsap.to('.hero-h .line span, .hero-h .italic-line span', {
+      y: 0, duration: 1.2, ease: 'power4.out', stagger: 0.16, delay: 0.1
+    });
+    gsap.to('.hero-sup, .hero-sub, .hbtns, .hstats', {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.1, delay: 0.4
+    });
+  }, 500);
+}
+
+/* Fire on load OR after 4 seconds — whichever comes first */
+const loaderTimeout = setTimeout(finishLoader, 4000);
+window.addEventListener('load', () => {
+  clearTimeout(loaderTimeout);
+  finishLoader();
+});
+
+/* ── LENIS SMOOTH SCROLL ─────────────────────── */
+const lenis = new Lenis({
+  duration: 1.25,
+  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smooth: true
+});
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(time => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
+
+/* ── PROGRESS + NAVBAR ───────────────────────── */
+lenis.on('scroll', ({ scroll }) => {
+  const tot = document.body.scrollHeight - window.innerHeight;
+  document.getElementById('pfill').style.width = (scroll / tot * 100) + '%';
+  document.getElementById('nav').classList.toggle('scrolled', scroll > 60);
+});
+
+/* ── CUSTOM CURSOR ───────────────────────────── */
+if (window.innerWidth > 768) {
+  const dot  = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function loop() {
+    rx += (mx - rx) * 0.13;
+    ry += (my - ry) * 0.13;
+    if (dot)  dot.style.transform  = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+    if (ring) ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('[data-hover],a,button,.pc,.mi,.ac,.fi,.dn').forEach(el => {
+    el.addEventListener('mouseenter', () => ring && ring.classList.add('hov'));
+    el.addEventListener('mouseleave', () => ring && ring.classList.remove('hov'));
+  });
+}
+
+/* ── THEME ───────────────────────────────────── */
+let dark = true;
+const thm = document.getElementById('thm');
+thm.addEventListener('click', () => {
+  dark = !dark;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  thm.textContent = dark ? '🌙' : '☀️';
+  localStorage.setItem('sdp-t', dark ? 'dark' : 'light');
+});
+if (localStorage.getItem('sdp-t') === 'light') {
+  dark = false;
+  document.documentElement.setAttribute('data-theme', 'light');
+  thm.textContent = '☀️';
+}
+
+/* ── HAMBURGER ───────────────────────────────── */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('x');
+  mob.classList.toggle('on');
+  document.body.style.overflow = mob.classList.contains('on') ? 'hidden' : '';
+});
+mob.querySelectorAll('.mlink').forEach(l => l.addEventListener('click', () => {
+  ham.classList.remove('x'); mob.classList.remove('on');
+  document.body.style.overflow = '';
+}));
+
+/* ── SMOOTH ANCHORS ──────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t && lenis) lenis.scrollTo(t, { duration: 1.5, offset: -80 });
+  });
+});
+
+/* ── GSAP: UNIVERSAL SCROLL REVEAL ──────────── */
+/* Trigger as soon as element enters viewport bottom */
+gsap.utils.toArray('.rev').forEach((el, i) => {
+  gsap.fromTo(el,
+    { opacity: 0, y: 35 },
+    {
+      opacity: 1, y: 0,
+      duration: 0.85,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 98%',   /* fires almost instantly on enter */
+        once: true
+      }
+    }
+  );
+});
+
+/* ── GSAP: SECTION HEADINGS (.sh) ────────────── */
+/* Simple fade+slide — NO SplitType (it breaks gradient spans) */
+gsap.utils.toArray('.sh').forEach(el => {
+  gsap.fromTo(el,
+    { opacity: 0, y: 30 },
+    {
+      opacity: 1, y: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 98%', once: true }
+    }
+  );
+});
+
+/* ── GSAP: CHIP LABELS ───────────────────────── */
+gsap.utils.toArray('.chip').forEach(el => {
+  gsap.fromTo(el,
+    { opacity: 0, x: -24 },
+    {
+      opacity: 1, x: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 98%', once: true }
+    }
+  );
+});
+
+/* ── GSAP: BENTO CARDS ───────────────────────── */
+gsap.utils.toArray('.bento').forEach(grid => {
+  gsap.fromTo(Array.from(grid.children),
+    { opacity: 0, y: 45, scale: 0.97 },
+    {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.8, ease: 'power3.out', stagger: 0.1,
+      scrollTrigger: { trigger: grid, start: 'top 95%', once: true }
+    }
+  );
+});
+
+/* ── GSAP: TIMELINE ENTRIES ──────────────────── */
+gsap.utils.toArray('.te').forEach((el, i) => {
+  gsap.fromTo(el,
+    { opacity: 0, x: -30 },
+    {
+      opacity: 1, x: 0,
+      duration: 0.7, ease: 'power3.out',
+      delay: i * 0.06,
+      scrollTrigger: { trigger: el, start: 'top 98%', once: true }
+    }
+  );
+});
+
+/* ── GSAP: PROJECT CARDS ─────────────────────── */
+gsap.utils.toArray('.pc').forEach((el, i) => {
+  gsap.fromTo(el,
+    { opacity: 0, y: 40 },
+    {
+      opacity: 1, y: 0,
+      duration: 0.75, ease: 'power3.out',
+      delay: (i % 3) * 0.1,
+      scrollTrigger: { trigger: el, start: 'top 98%', once: true }
+    }
+  );
+});
+
+/* ── GSAP: GALLERY POLAROIDS ─────────────────── */
+gsap.utils.toArray('.polaroid').forEach((el, i) => {
+  const rot = el.style.transform || '';
+  gsap.fromTo(el,
+    { opacity: 0, y: 50, scale: 0.88 },
+    {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.9, ease: 'back.out(1.4)',
+      delay: (i % 3) * 0.14,
+      scrollTrigger: { trigger: el, start: 'top 98%', once: true }
+    }
+  );
+});
+
+/* ── GSAP: AWARD CARDS ───────────────────────── */
+gsap.fromTo('.ac',
+  { opacity: 0, x: 40 },
+  {
+    opacity: 1, x: 0,
+    duration: 0.75, ease: 'power3.out', stagger: 0.09,
+    scrollTrigger: { trigger: '#awards', start: 'top 92%', once: true }
+  }
+);
+
+/* ── GSAP: TESTIMONIAL SECTION FADE ─────────── */
+gsap.fromTo('#testi .w',
+  { opacity: 0, y: 20 },
+  {
+    opacity: 1, y: 0,
+    duration: 0.7, ease: 'power3.out',
+    scrollTrigger: { trigger: '#testi', start: 'top 95%', once: true }
+  }
+);
+/* Marquee rows fade in together — don't animate individual .tc cards */
+gsap.fromTo('.mq-wrap',
+  { opacity: 0 },
+  {
+    opacity: 1, duration: 0.8, ease: 'power2.out',
+    scrollTrigger: { trigger: '.mq-wrap', start: 'top 98%', once: true }
+  }
+);
+
+/* ── GSAP: CONTACT FORM ──────────────────────── */
+gsap.fromTo('.cform-card',
+  { opacity: 0, y: 40 },
+  {
+    opacity: 1, y: 0,
+    duration: 0.9, ease: 'power3.out',
+    scrollTrigger: { trigger: '.cform-card', start: 'top 95%', once: true }
+  }
+);
+
+/* ── GSAP: HERO PARALLAX ─────────────────────── */
+gsap.to('.hero-bg', {
+  y: 120,
+  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 2 }
+});
+
+/* ── PARALLAX ORBS — MOUSE ───────────────────── */
+document.addEventListener('mousemove', e => {
+  const x = (e.clientX / window.innerWidth  - 0.5) * 28;
+  const y = (e.clientY / window.innerHeight - 0.5) * 28;
+  gsap.to('.o1', { x: x * 0.7, y: y * 0.7, duration: 2, ease: 'power1.out' });
+  gsap.to('.o2', { x: -x * 0.5, y: -y * 0.5, duration: 2.5, ease: 'power1.out' });
+  gsap.to('.o3', { x: x, y: y, duration: 1.5, ease: 'power1.out' });
+});
+
+/* ── SKILL BARS ──────────────────────────────── */
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.bf').forEach((b, i) =>
+        setTimeout(() => b.classList.add('go'), i * 200 + 300)
+      );
+      barObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.bc').forEach(c => barObs.observe(c));
+
+/* ── STAT COUNTERS ───────────────────────────── */
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = +el.dataset.count;
+    const span = el.querySelector('.cnum');
+    if (!span) return;
+    let cur = 0;
+    const step = target / 45;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      span.textContent = Math.floor(cur);
+      if (cur >= target) clearInterval(t);
+    }, 35);
+  });
+}
+// Trigger counters when hero stats come into view
+const statsEl = document.querySelector('.hstats');
+if (statsEl) {
+  const sObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateCounters(); sObs.disconnect(); }
+  }, { threshold: 0.3 });
+  sObs.observe(statsEl);
+}
+
+/* ── DOT NAVIGATION ──────────────────────────── */
+const sections = ['hero','about','bedcourse','awards','testi','reflection','contact'];
+const dots = document.querySelectorAll('.dn');
+const dotObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      dots.forEach(d => d.classList.remove('on'));
+      const a = document.querySelector(`.dn[data-s="${e.target.id}"]`);
+      if (a) a.classList.add('on');
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(id => { const el = document.getElementById(id); if (el) dotObs.observe(el); });
+dots.forEach(d => d.addEventListener('click', () => {
+  const t = document.getElementById(d.dataset.s);
+  if (t && lenis) lenis.scrollTo(t, { duration: 1.5 });
+}));
+
+/* ── TAB NAVIGATION (sliding indicator) ─────── */
+const tabs  = document.querySelectorAll('.tbtn');
+const indic = document.querySelector('.tab-indicator');
+function moveIndicator(btn) {
+  if (!indic || !btn) return;
+  indic.style.left  = btn.offsetLeft + 'px';
+  indic.style.width = btn.offsetWidth + 'px';
+}
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('on'));
+    document.querySelectorAll('.tpan').forEach(p => p.classList.remove('on'));
+    btn.classList.add('on');
+    document.getElementById('t-' + btn.dataset.t).classList.add('on');
+    moveIndicator(btn);
+  });
+});
+setTimeout(() => moveIndicator(document.querySelector('.tbtn.on')), 200);
+window.addEventListener('resize', () => moveIndicator(document.querySelector('.tbtn.on')));
+
+/* ── SEM SUB-TABS (B.ED COURSE) ──────────────── */
+const semBtns = document.querySelectorAll('.sbtn');
+semBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    semBtns.forEach(b => b.classList.remove('on'));
+    document.querySelectorAll('.span').forEach(p => p.classList.remove('on'));
+    btn.classList.add('on');
+    const target = document.getElementById(btn.dataset.sp);
+    if (target) {
+      target.classList.add('on');
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      target.querySelectorAll('.rev').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+  });
+});
+
+/* ── PROJECTS TABS ───────────────────────────── */
+const hsT = document.getElementById('hsT');
+// Awards — scroll the OUTER wrapper (has overflow-x:auto)
+const hsOuter = document.querySelector('.hs-outer');
+if (hsOuter) {
+  document.getElementById('hsNext').addEventListener('click', () =>
+    hsOuter.scrollBy({ left: 300, behavior: 'smooth' }));
+  document.getElementById('hsPrev').addEventListener('click', () =>
+    hsOuter.scrollBy({ left: -300, behavior: 'smooth' }));
+  // Drag-to-scroll
+  let isDown = false, startX = 0, scrollLeft = 0;
+  hsOuter.addEventListener('mousedown', e => { isDown = true; hsOuter.style.cursor='grabbing'; startX = e.pageX - hsOuter.offsetLeft; scrollLeft = hsOuter.scrollLeft; });
+  hsOuter.addEventListener('mouseleave', () => { isDown = false; hsOuter.style.cursor='grab'; });
+  hsOuter.addEventListener('mouseup',    () => { isDown = false; hsOuter.style.cursor='grab'; });
+  hsOuter.addEventListener('mousemove',  e => {
+    if (!isDown) return;
+    e.preventDefault();
+    hsOuter.scrollLeft = scrollLeft - (e.pageX - hsOuter.offsetLeft - startX) * 1.5;
+  });
+}
+
+/* ── MARQUEES DUPLICATE ──────────────────────── */
+['mq1','mq2'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML += el.innerHTML;
+});
+
+/* ── TICKER DUPLICATE ────────────────────────── */
+const tick = document.getElementById('tick');
+if (tick) tick.innerHTML += tick.innerHTML;
+
+/* ── FAQ ACCORDION ───────────────────────────── */
+document.querySelectorAll('.fq').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('on');
+    document.querySelectorAll('.fi').forEach(i => i.classList.remove('on'));
+    if (!wasOpen) item.classList.add('on');
+  });
+});
+
+/* ── MODAL DATA ──────────────────────────────── */
+const MD = {
+  p1:{ cat:'Technology · Digital Safety', tit:'Cyber Safety Awareness in Marathi',
+    bdy:`Created Marathi-language Cyber Safety infographics and videos:<br><br>
+    <strong>Topics:</strong> Hacking &amp; Phishing · Digital Arrest scams · Online Fraud protection · Strong passwords · Two-factor authentication · Maharashtra Cyber Police helpline: <strong style="color:#F59E0B">1930</strong><br><br>
+    <em>सायबर सुरक्षाविषयी मराठीत इन्फोग्राफिक्स आणि व्हिडिओ तयार केले.</em>` },
+  p2:{ cat:'Technology · Workshop', tit:'Arduino / IoT Projects for Students',
+    bdy:`Hands-on Arduino-based IoT project workshops:<br><br>
+    <strong>Highlights:</strong> Arduino hardware intro · Sensor integration &amp; programming · Real IoT project builds (motion sensors, LED control, temperature monitoring) · Hardware meets code<br><br>
+    <em>शाळा आणि कनिष्ठ महाविद्यालयाच्या विद्यार्थ्यांसाठी Arduino IoT कार्यशाळा.</em>` },
+  p3:{ cat:'Technology · Training', tit:'Python Programming Course',
+    bdy:`Structured Python course for Jr. College students:<br><br>
+    <strong>Content:</strong> Python fundamentals · Functions, loops, data structures · File handling and automation · Mini-projects · Introduction to libraries<br><br>
+    <em>कनिष्ठ महाविद्यालयाच्या विद्यार्थ्यांसाठी Python प्रोग्रामिंग कोर्स.</em>` },
+  p4:{ cat:'Research · Published Paper', tit:'"Salmon in the Ocean of COVID" — Startups &amp; Innovation',
+    bdy:`Analysing Indian startup growth during COVID-19:<br><br>
+    <strong>Key Areas:</strong> Startup India initiative · IIT startups — Flipkart, Ola, Zomato · Atma-nirbhar Bharat ecosystem · Tech-enabled economic recovery<br><br>
+    <em>कोविड-19 काळातील भारतीय स्टार्टअप परिसंस्थेवर संशोधन पेपर.</em>` },
+  p5:{ cat:'Research · Published Paper', tit:'Challenges &amp; Prospectives of E-Commerce in India',
+    bdy:`E-commerce growth, challenges and future in India:<br><br>
+    <strong>Key Areas:</strong> B2B, B2C, C2C, C2B models · Supply chain &amp; logistics · Rural vs urban penetration · Job creation &amp; entrepreneurship · Statistical data with charts<br><br>
+    <em>भारतातील ई-कॉमर्सच्या आव्हाने आणि संधींवर संशोधन पेपर.</em>` },
+  p6:{ cat:'Education · ICT Training', tit:'ICT Training for Teachers',
+    bdy:`Empowering fellow school teachers with digital tools:<br><br>
+    <strong>Training:</strong> Google Workspace for educators · Digital content creation · Online assessment platforms · Classroom technology integration · Educational software<br><br>
+    <em>शाळेतील शिक्षकांसाठी ICT प्रशिक्षण कार्यशाळा आयोजित केल्या.</em>` },
+  g1:{ cat:'Gallery · गॅलरी', tit:"Women's Day Celebration",
+    bdy:"Women's Day celebration at Arambha Mahavidyalaya, Nashik — honouring the contributions of women in education and society." }
+};
+function openM(k) {
+  const d = MD[k]; if (!d) return;
+  document.getElementById('mcat').textContent = d.cat;
+  document.getElementById('mtit').innerHTML   = d.tit;
+  document.getElementById('mbdy').innerHTML   = d.bdy;
+  document.getElementById('modal').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeM() {
+  document.getElementById('modal').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.getElementById('modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal')) closeM();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
+
+/* ── CONTACT FORM ────────────────────────────── */
+function sendMsg() {
+  const n = document.getElementById('cN').value.trim();
+  const e = document.getElementById('cE').value.trim();
+  const m = document.getElementById('cM').value.trim();
+  if (!n || !e || !m) { alert('Please fill all required fields. · कृपया सर्व माहिती भरा.'); return; }
+  document.getElementById('fok').style.display = 'block';
+  ['cN','cE','cS','cM'].forEach(id => document.getElementById(id).value = '');
+}
+
+/* ── LOGO DOUBLE-CLICK → TOP ─────────────────── */
+document.querySelector('.logo').addEventListener('dblclick', () => {
+  if (lenis) lenis.scrollTo(document.body, { duration: 2 });
+});
+</script>
+</body>
+</html>
